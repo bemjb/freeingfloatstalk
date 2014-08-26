@@ -1,0 +1,61 @@
+body{
+  margin: 0 auto;
+  padding: 0 4em 0 0;
+  max-width: 45em;
+  min-width: 32em;
+  font-family: Georgia, Times, serif;
+  background: rgb(228, 245, 241);
+  color: rgb(82, 71, 66);
+}
+
+h1{
+  margin: 1rem auto 1rem;
+  text-align: center;
+  font-family: kaushan-script, kaushan script;
+  font-size: 7.2em;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  padding-left: 8em;
+}
+
+.coffee{
+  -webkit-shape-outside: url(espresso.png);
+  -webkit-shape-margin: 1.5em;
+
+  shape-outside: url(espresso.png);
+  shape-margin: 1.5em;
+
+  margin: 1.5em;
+  width: 380px;
+  height: 380px;
+  float: left;
+}
+
+.spoon{
+  -webkit-shape-outside: url(spoon.png);
+  -webkit-shape-margin: 0.5em;
+
+  shape-outside: url(spoon.png);
+  shape-margin: 0.5em;
+
+  margin: 1em -10% 1em 1em;
+  width: 250px;
+  height: 420px;
+  float: right;
+}
+
+.credits{
+  margin: 2em 0;
+  font-style: italic;
+}
+
+.credits a{
+  color: inherit;
+}
+
+.credits a:hover{
+  text-decoration: none;
+}

@@ -36,35 +36,20 @@
         <![endif]-->
 
         <style>
-            .reveal .example-container {
-                font-size: 20px;
-                line-height: 1;
+            .reveal .shape-container {
+                margin-left: auto;
+                margin-right: auto;
+                width: 70%;
+                text-align: left;
             }
-            .reveal .float-example {
+            .reveal #polygon-shape {
                 float: left;
-                font: 40px/1 Ahem;
-                color: green;
-                padding: 40px;
-                background-color: purple;
-                border: 40px solid orange;
-                border-radius: 40%;
-                margin: 40px;
-            }
-            .reveal .margin-box {
-                -webkit-shape-outside: margin-box;
-                shape-outside: margin-box;
-            }
-            .reveal .border-box {
-                -webkit-shape-outside: border-box;
-                shape-outside: border-box;
-            }
-            .reveal .padding-box {
-                -webkit-shape-outside: padding-box;
-                shape-outside: padding-box;
-            }
-            .reveal .content-box {
-                -webkit-shape-outside: content-box;
-                shape-outside: content-box;
+                height: 100px;
+                width: 100px;
+                -webkit-shape-outside: polygon(0 0, 100% 0, 50% 100%);
+                shape-outside: polygon(0 0, 100% 0, 50% 100%);
+                -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
+                background-color: orange;
             }
         </style>
     </head>
@@ -84,6 +69,16 @@
                     </aside>
                 </section>
                 <section>
+                    <h2>Who Am I?</h2>
+
+                    <ul>
+                        <li>Bem Jones-Bey &lt;<a href="mailto:bemjb@adobe.com">bemjb@adobe.com</a>&gt; <a href="http://twitter.com/bemjb">@bemjb</a></li>
+                        <li>Computer Scientist on <a href="http://webplatform.adobe,com/">Adobe's Web Platform Team</a> &lt;<a href="http://webplatform.adobe.com/">http://webplatform.adobe.com/</a>&gt;</li>
+                        <li>We implemented CSS Shapes in WebKit (Safari) and Blink (Chrome)</li>
+                        <li>Samsung helped with the Blink implementation, and both Google and Apple supported our efforts, so thanks to them!</li>
+                    </ul>
+                </section>
+                <section>
                     <iframe style="height: 100vh; width: 100vw;" src="demo/css-shapes-espresso-no-shapes/index.html"></iframe>
                     <p>Based on <a href="http://razvancaliman.com/css-shapes-espresso/">a demo by Razvan Caliman</a></p>
                 </section>
@@ -98,10 +93,8 @@
                         <li>W3C Specification by Adobe and Microsoft, in Candidate Recommendation stage</li>
                         <li>Currently available in:
                             <ul>
-                                <li>Chrome 37</li>
-                                <li>Safari 6.2, 7.1, and 8</li>
-                                <li>Chrome for Android 37 <b>FIXME: DOUBLE CHECK THIS VERSION</b></li>
-                                <li>iOS 8 Mobile Safari</li>
+                                <li>Chrome 37 Windows, OS X, Linux, and Android</li>
+                                <li>OS X Safari 6.2, 7.1, and 8; iOS 8</li>
                             </ul>
                         </li>
                         <li>No prefix in Chrome, but Safari has <code>-webkit</code> prefix</li>
@@ -125,114 +118,19 @@
                 </section>
                 <section>
                     <h2>Box (Model) Shapes</h2>
-
-                    <pre><code data-trim>
-.box-model-float {
-    float: left;
-    font: 40px/1 Ahem;
-    color: green;
-    padding: 40px;
-    background-color: purple;
-    border: 40px solid orange;
-    border-radius: 40%;
-    margin: 40px;
-}
-                    </code></pre>
-                    <div class="example-container">
-                        <div class="float-example">X</div>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique dui ac ante fringilla porttitor. In ac arcu a massa accumsan ultricies eleifend ac lorem. Nullam viverra, urna ac aliquam venenatis, orci ante dignissim risus, et consectetur lorem libero sit amet lorem. Proin at fringilla dolor. Sed ac orci vitae justo malesuada interdum sed in lorem. Praesent fermentum tincidunt elit, eu porttitor diam scelerisque id. Duis vestibulum dui at libero porttitor, eget aliquam elit placerat. Curabitur ac elit non ipsum euismod mollis. Etiam consectetur nibh vel quam condimentum ultricies. Aenean consectetur at nunc nec luctus. Cras tempor urna vitae justo congue, vel aliquam orci vehicula. Donec scelerisque erat diam, mollis gravida enim fermentum vitae. Suspendisse sed mollis purus.
-                        Integer pulvinar arcu eleifend, interdum tellus vel, accumsan enim. Fusce venenatis ante augue, at porta nisl semper eget. Integer eu libero sit amet tellus facilisis interdum in nec ipsum. Vivamus consectetur dolor nec est facilisis, vel varius orci tristique. Nam tempus iaculis dui id vestibulum. Nam ultricies ac turpis eget porta. Phasellus porttitor at ante sed blandit.
-Aenean molestie ac tortor vel lacinia. Aliquam at laoreet ligula. Maecenas ut porttitor lectus. In dolor metus, convallis vitae felis vitae, tincidunt blandit lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In sapien elit, faucibus ut iaculis id, laoreet id dolor. Donec ligula tortor, vulputate eu porta sed, blandit et erat. Vestibulum et nisi at ligula euismod luctus. Vestibulum porttitor consectetur justo, a gravida tellus pretium et. Vivamus sed nulla gravida, tincidunt lorem quis, rutrum dui. Nunc tempus, odio sed pretium ullamcorper, arcu mauris aliquam quam, accumsan sagittis leo sapien sed tellus. Donec dignissim justo in vulputate mollis. Mauris hendrerit, lectus sit amet congue aliquet, augue orci venenatis sapien, id condimentum risus tortor at augue. Proin blandit mollis lectus at dictum. Donec et erat dapibus lacus varius viverra eget sit amet risus.
-                    </div>
-
-                    <aside class="notes">
-                        
-                    </aside>
-                </section>
-                <section>
-                    <h2>shape-outside: margin-box</h2>
-
-                    <pre><code data-trim>
-.margin-box-shape {
-    shape-outside: margin-box;
-}
-                    </code></pre>
-                    <div class="example-container">
-                        <div class="float-example margin-box">X</div>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique dui ac ante fringilla porttitor. In ac arcu a massa accumsan ultricies eleifend ac lorem. Nullam viverra, urna ac aliquam venenatis, orci ante dignissim risus, et consectetur lorem libero sit amet lorem. Proin at fringilla dolor. Sed ac orci vitae justo malesuada interdum sed in lorem. Praesent fermentum tincidunt elit, eu porttitor diam scelerisque id. Duis vestibulum dui at libero porttitor, eget aliquam elit placerat. Curabitur ac elit non ipsum euismod mollis. Etiam consectetur nibh vel quam condimentum ultricies. Aenean consectetur at nunc nec luctus. Cras tempor urna vitae justo congue, vel aliquam orci vehicula. Donec scelerisque erat diam, mollis gravida enim fermentum vitae. Suspendisse sed mollis purus.
-                        Integer pulvinar arcu eleifend, interdum tellus vel, accumsan enim. Fusce venenatis ante augue, at porta nisl semper eget. Integer eu libero sit amet tellus facilisis interdum in nec ipsum. Vivamus consectetur dolor nec est facilisis, vel varius orci tristique. Nam tempus iaculis dui id vestibulum. Nam ultricies ac turpis eget porta. Phasellus porttitor at ante sed blandit.
-Aenean molestie ac tortor vel lacinia. Aliquam at laoreet ligula. Maecenas ut porttitor lectus. In dolor metus, convallis vitae felis vitae, tincidunt blandit lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In sapien elit, faucibus ut iaculis id, laoreet id dolor. Donec ligula tortor, vulputate eu porta sed, blandit et erat. Vestibulum et nisi at ligula euismod luctus. Vestibulum porttitor consectetur justo, a gravida tellus pretium et. Vivamus sed nulla gravida, tincidunt lorem quis, rutrum dui. Nunc tempus, odio sed pretium ullamcorper, arcu mauris aliquam quam, accumsan sagittis leo sapien sed tellus. Donec dignissim justo in vulputate mollis. Mauris hendrerit, lectus sit amet congue aliquet, augue orci venenatis sapien, id condimentum risus tortor at augue. Proin blandit mollis lectus at dictum. Donec et erat dapibus lacus varius viverra eget sit amet risus.
-                    </div>
-
-                    <aside class="notes">
-                        
-                    </aside>
-                </section>
-                <section>
-                    <h2>shape-outside: border-box</h2>
-
-                    <pre><code data-trim>
-.border-box-shape {
-    shape-outside: border-box;
-}
-                    </code></pre>
-                    <div class="example-container">
-                        <div class="float-example border-box">X</div>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique dui ac ante fringilla porttitor. In ac arcu a massa accumsan ultricies eleifend ac lorem. Nullam viverra, urna ac aliquam venenatis, orci ante dignissim risus, et consectetur lorem libero sit amet lorem. Proin at fringilla dolor. Sed ac orci vitae justo malesuada interdum sed in lorem. Praesent fermentum tincidunt elit, eu porttitor diam scelerisque id. Duis vestibulum dui at libero porttitor, eget aliquam elit placerat. Curabitur ac elit non ipsum euismod mollis. Etiam consectetur nibh vel quam condimentum ultricies. Aenean consectetur at nunc nec luctus. Cras tempor urna vitae justo congue, vel aliquam orci vehicula. Donec scelerisque erat diam, mollis gravida enim fermentum vitae. Suspendisse sed mollis purus.
-                        Integer pulvinar arcu eleifend, interdum tellus vel, accumsan enim. Fusce venenatis ante augue, at porta nisl semper eget. Integer eu libero sit amet tellus facilisis interdum in nec ipsum. Vivamus consectetur dolor nec est facilisis, vel varius orci tristique. Nam tempus iaculis dui id vestibulum. Nam ultricies ac turpis eget porta. Phasellus porttitor at ante sed blandit.
-Aenean molestie ac tortor vel lacinia. Aliquam at laoreet ligula. Maecenas ut porttitor lectus. In dolor metus, convallis vitae felis vitae, tincidunt blandit lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In sapien elit, faucibus ut iaculis id, laoreet id dolor. Donec ligula tortor, vulputate eu porta sed, blandit et erat. Vestibulum et nisi at ligula euismod luctus. Vestibulum porttitor consectetur justo, a gravida tellus pretium et. Vivamus sed nulla gravida, tincidunt lorem quis, rutrum dui. Nunc tempus, odio sed pretium ullamcorper, arcu mauris aliquam quam, accumsan sagittis leo sapien sed tellus. Donec dignissim justo in vulputate mollis. Mauris hendrerit, lectus sit amet congue aliquet, augue orci venenatis sapien, id condimentum risus tortor at augue. Proin blandit mollis lectus at dictum. Donec et erat dapibus lacus varius viverra eget sit amet risus.
-                    </div>
-
-                    <aside class="notes">
-                        
-                    </aside>
-                </section>
-                <section>
-                    <h2>shape-outside: padding-box</h2>
-
-                    <pre><code data-trim>
-.padding-box-shape {
-    shape-outside: padding-box;
-}
-                    </code></pre>
-                    <div class="example-container">
-                        <div class="float-example padding-box">X</div>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique dui ac ante fringilla porttitor. In ac arcu a massa accumsan ultricies eleifend ac lorem. Nullam viverra, urna ac aliquam venenatis, orci ante dignissim risus, et consectetur lorem libero sit amet lorem. Proin at fringilla dolor. Sed ac orci vitae justo malesuada interdum sed in lorem. Praesent fermentum tincidunt elit, eu porttitor diam scelerisque id. Duis vestibulum dui at libero porttitor, eget aliquam elit placerat. Curabitur ac elit non ipsum euismod mollis. Etiam consectetur nibh vel quam condimentum ultricies. Aenean consectetur at nunc nec luctus. Cras tempor urna vitae justo congue, vel aliquam orci vehicula. Donec scelerisque erat diam, mollis gravida enim fermentum vitae. Suspendisse sed mollis purus.
-                        Integer pulvinar arcu eleifend, interdum tellus vel, accumsan enim. Fusce venenatis ante augue, at porta nisl semper eget. Integer eu libero sit amet tellus facilisis interdum in nec ipsum. Vivamus consectetur dolor nec est facilisis, vel varius orci tristique. Nam tempus iaculis dui id vestibulum. Nam ultricies ac turpis eget porta. Phasellus porttitor at ante sed blandit.
-Aenean molestie ac tortor vel lacinia. Aliquam at laoreet ligula. Maecenas ut porttitor lectus. In dolor metus, convallis vitae felis vitae, tincidunt blandit lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In sapien elit, faucibus ut iaculis id, laoreet id dolor. Donec ligula tortor, vulputate eu porta sed, blandit et erat. Vestibulum et nisi at ligula euismod luctus. Vestibulum porttitor consectetur justo, a gravida tellus pretium et. Vivamus sed nulla gravida, tincidunt lorem quis, rutrum dui. Nunc tempus, odio sed pretium ullamcorper, arcu mauris aliquam quam, accumsan sagittis leo sapien sed tellus. Donec dignissim justo in vulputate mollis. Mauris hendrerit, lectus sit amet congue aliquet, augue orci venenatis sapien, id condimentum risus tortor at augue. Proin blandit mollis lectus at dictum. Donec et erat dapibus lacus varius viverra eget sit amet risus.
-                    </div>
-
-                    <aside class="notes">
-                        
-                    </aside>
-                </section>
-                <section>
-                    <h2>shape-outside: content-box</h2>
-
-                    <pre><code data-trim>
-.content-box-shape {
-    shape-outside: content-box;
-}
-                    </code></pre>
-                    <div class="example-container">
-                        <div class="float-example content-box">X</div>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique dui ac ante fringilla porttitor. In ac arcu a massa accumsan ultricies eleifend ac lorem. Nullam viverra, urna ac aliquam venenatis, orci ante dignissim risus, et consectetur lorem libero sit amet lorem. Proin at fringilla dolor. Sed ac orci vitae justo malesuada interdum sed in lorem. Praesent fermentum tincidunt elit, eu porttitor diam scelerisque id. Duis vestibulum dui at libero porttitor, eget aliquam elit placerat. Curabitur ac elit non ipsum euismod mollis. Etiam consectetur nibh vel quam condimentum ultricies. Aenean consectetur at nunc nec luctus. Cras tempor urna vitae justo congue, vel aliquam orci vehicula. Donec scelerisque erat diam, mollis gravida enim fermentum vitae. Suspendisse sed mollis purus.
-                        Integer pulvinar arcu eleifend, interdum tellus vel, accumsan enim. Fusce venenatis ante augue, at porta nisl semper eget. Integer eu libero sit amet tellus facilisis interdum in nec ipsum. Vivamus consectetur dolor nec est facilisis, vel varius orci tristique. Nam tempus iaculis dui id vestibulum. Nam ultricies ac turpis eget porta. Phasellus porttitor at ante sed blandit.
-Aenean molestie ac tortor vel lacinia. Aliquam at laoreet ligula. Maecenas ut porttitor lectus. In dolor metus, convallis vitae felis vitae, tincidunt blandit lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In sapien elit, faucibus ut iaculis id, laoreet id dolor. Donec ligula tortor, vulputate eu porta sed, blandit et erat. Vestibulum et nisi at ligula euismod luctus. Vestibulum porttitor consectetur justo, a gravida tellus pretium et. Vivamus sed nulla gravida, tincidunt lorem quis, rutrum dui. Nunc tempus, odio sed pretium ullamcorper, arcu mauris aliquam quam, accumsan sagittis leo sapien sed tellus. Donec dignissim justo in vulputate mollis. Mauris hendrerit, lectus sit amet congue aliquet, augue orci venenatis sapien, id condimentum risus tortor at augue. Proin blandit mollis lectus at dictum. Donec et erat dapibus lacus varius viverra eget sit amet risus.
-                    </div>
-
-                    <aside class="notes">
-                        
-                    </aside>
+                    <ul>
+                        <li><code>margin-box</code>, <code>border-box</code>, <code>padding-box</code>, <code>content-box</code></li>
+                        <li>Respect <code>border-radius</code></li>
+                    </ul>
                 </section>
                 <section>
                     <h2>Basic Shapes</h2>
 
                     <ul>
-                        <li>inset()</li>
-                        <li>circle()</li>
-                        <li>ellipse()</li>
-                        <li>polygon()</li>
+                        <li><code>inset()</code></li>
+                        <li><code>circle()</code></li>
+                        <li><code>ellipse()</code></li>
+                        <li><code>polygon()</code></li>
                     </ul>
 
                     <aside class="notes">
@@ -292,7 +190,37 @@ Aenean molestie ac tortor vel lacinia. Aliquam at laoreet ligula. Maecenas ut po
                 <section>
                     <h2>Defining Radii for Basic Shapes</h2>
 
+                    <ul>
+                        <li>Length (em, ex, ch, rem, vw, vh, vmin, vmax, cm, mm, q, in, pc, pt, px)</li>
+                        <li>Percentage
+                            <ul>
+                                <li>For <code>circle()</code>
+                                    <ul>
+                                        <li>relative to \( \sqrt{ (width^{2} + height^{2}) / 2 } \)</li>
+                                    </ul>
+                                </li>
+                                <li>For <code>ellipse()</code>
+                                    <ul>
+                                        <li>x radius (<code>rx</code>) is relative to the width of the reference box</li>
+                                        <li>y radius (<code>ry</code>) is relative to the height of the reference box</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
 
+                    <aside class="notes">
+                        
+                    </aside>
+                </section>
+                <section>
+                    <h2>Defining Radii for Basic Shapes: Keywords</h2>
+
+                    <ul>
+                        <li><code>closest-side</code>: distance from the center of the shape to the closest side of the reference box</li>
+                        <li><code>farthest-side</code>: distance from the center of the shape to the farthest side of the reference box</li>
+                        <li>For <code>ellipse()</code>, this is the closest side or furthest side in the x direction for <code>rx</code> and the y direction for <code>ry</code></li>
+                    </ul>
 
                     <aside class="notes">
                         
@@ -302,10 +230,8 @@ Aenean molestie ac tortor vel lacinia. Aliquam at laoreet ligula. Maecenas ut po
                     <h2>Basic Shape: circle()</h2>
 
                     <pre><code>
-#zero-arg-circle { shape-outside: circle() /* radius 50%, positioned at center of reference box */ }
+#zero-arg-circle { shape-outside: circle() /* radius closest-side, positioned at center of reference box */ }
                     </code></pre>
-
-                    A percentage radius is calculated from both the width and height of the refernce box: sqrt(width2 + height2)/sqrt(2)
 
                     <aside class="notes">
                         
@@ -315,12 +241,118 @@ Aenean molestie ac tortor vel lacinia. Aliquam at laoreet ligula. Maecenas ut po
                     <h2>Basic Shape: ellipse()</h2>
 
                     <pre><code>
-#zero-arg-ellipse { shape-outside: ellipse() /* radius 50%, positioned at center of reference box */ }
+#zero-arg-ellipse { shape-outside: ellipse() /* rx = ry = closest-side, positioned at center of reference box */ }
                     </code></pre>
 
                     <aside class="notes">
                         
                     </aside>
+                </section>
+                <section>
+                    <h2>Basic Shape: polygon()</h2>
+
+                    <pre><code>
+#triangle { shape-outside: polygon(0 0, 100% 0, 50% 100%); }
+                    </code></pre>
+
+                    <p class="shape-container">
+                        <span id="polygon-shape"></span>
+                        A polygon with less than 3 vertices is invalid.<br/>
+                        A polygon will always be closed by drawing a line from the last point specified to the initial point.<br/>
+                    </p>
+
+                    <aside class="notes">
+                        
+                    </aside>
+                </section>
+                <section>
+                    <h2>Basic Shape Demo</h2>
+                    INSERT DEMO IFRAME HERE
+
+                    <aside class="notes">
+                        The idea is to have a demo where one can pick different shapes and different reference boxes and see how the rendering changes.
+                    </aside>
+                </section>
+                <section>
+                    <h2>Image Shapes</h2>
+
+                    <pre><code>
+#image { shape-outside: url(image-shape.svg); }
+                    </code></pre>
+
+                    <ul>
+                        <li>Alpha channel of the image defines the shape</li>
+                        <li>Always sized and positioned based on the content box of the float</li>
+                    </ul>
+
+                    <aside class="notes">
+
+                    </aside>
+                </section>
+                <section>
+                    <h2>Image Shapes: Supported images</h2>
+
+                    <ul>
+                        <li>Can be a url to any image
+                            <ul>
+                                <li>For animated images, the spec says that only the first frame is used, but the in practice, you get an animated shape</li>
+                                <li>Data URIs work great</li>
+                                <li>Must have same origin or be allowed by CORS</li>
+                            </ul>
+                        </li>
+                        <li>Gradients are also supported, both linear and radial</li>
+                        <li>And more in the future, as the <a href="http://dev.w3.org/csswg/css-images-3/#image-type">CSS image value</a> gets expanded</li>
+                    </ul>
+
+                    <aside class="notes">
+
+                    </aside>
+                </section>
+                <section>
+                    <h2>Image Shapes: shape-image-threshold</h2>
+
+                    <pre><code>
+#image-threshold {
+    shape-outside: url(another-image.png);
+    shape-image-threshold: 0.3;
+}
+                    </code></pre>
+
+                    <ul>
+                        <li>Any pixels with opacity below the threshold are not considered part of the shape</li>
+                        <li>Range is from <code>0.0</code> (transparent) to <code>1.0</code> (opaque)</li>
+                        <li>Defaults to <code>0.0</code></li>
+                    </ul>
+
+                    <aside class="notes">
+
+                    </aside>
+                </section>
+                <section>
+                    <h2>shape-margin</h2>
+
+                    <pre><code>
+#shape-margin {
+    shape-outside: url(another-image.png);
+    shape-margin: 0.5em;
+}
+                    </code></pre>
+
+                    <aside class="notes">
+
+                    </aside>
+                </section>
+                <section>
+                    <h2>Image Shape Demo</h2>
+
+                    INSERT DEMO IFRAME HERE
+
+                    <aside class="notes">
+
+                    </aside>
+                </section>
+                <section>
+                    <h2>Useful Links</h2>
                 </section>
             </div>
 

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<style>
+    #content {
+        font-size: 3vh;
+    }
+    #shape {
+        position: relative;
+        float: left;
+        width: 30vh;
+        height: 30vh;
+        background-color: blue;
+        padding: 0px;
+        border-color: cyan;
+        border-style: solid;
+        border-width: 0px;
+        margin: 0px;
+    }
+    #shape-content {
+        width: 100%;
+        height: 100%;
+        background-color: darkblue;
+    }
+    #controls {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 30vw;
+        border: 2px solid black;
+        border-radius: 1em;
+        background-color: white;
+        padding: 1em;
+        font-family: monospace;
+    }
+    #shape-outside {
+        font-family: monospace;
+        width: calc(100% - 12em);
+    }
+</style>
+<body>
+    <div id="controls">
+        <p>
+            <label for="shape-outside">shape-outside: </label>
+            <input id="shape-outside" type="text" value="inset()">
+        </p>
+        <p>
+            <label for="float">float: </label>
+            <select id="float" value="left">
+                <option>left</option>
+                <option>right</option>
+            </select>
+        </p>
+        <p>
+            <label for="geometry">content box geometry: </label>
+            <select id="geometry" value="square">
+                <option>square</option>
+                <option>portrait</option>
+                <option>landscape</option>
+            </select>
+        </p>
+        <p>
+            <label for="padding">padding: </label>
+            <input id="padding" type="range" min="0" max="200" step="1" value="0">
+        </p>
+        <p>
+            <label for="border-width">border-width: </label>
+            <input id="border-width" type="range" min="0" max="200" step="1" value="0">
+        </p>
+        <p>
+            <label for="margin">margin: </label>
+            <input id="margin" type="range" min="0" max="200" step="1" value="0">
+        </p>
+        <p>
+            <label for="font-size">font-size: </label>
+            <input id="font-size" type="range" min="1" max="50" step="1" value="30">
+        </p>
+    </div>
+    <div id="shape"><div id="shape-content"></div></div>
+    <p id="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</body>
+<script>
+    var shape = document.getElementById('shape');
+    var content = document.getElementById('content');
+    var controls = document.getElementById('controls');
+    [
+        {
+            id: 'float',
+            handler: function (e) {
+                var cssFloat = e.target.value;
+                shape.style.cssFloat = cssFloat;
+                switch (cssFloat) {
+                case 'left':
+                    controls.style.right = '0px';
+                    controls.style.left = 'auto';
+                    break;
+                case 'right':
+                    controls.style.right = 'auto';
+                    controls.style.left = '0px';
+                    break;
+                default:
+                    throw "Unknown float value: " + cssFloat;
+                }
+            }
+        },
+        {
+            id: 'geometry',
+            handler: function (e) {
+                var geometry = e.target.value;
+                switch (geometry) {
+                case 'square':
+                    shape.style.width = '30vh';
+                    shape.style.height = '30vh';
+                    break;
+                case 'portrait':
+                    shape.style.width = '15vh';
+                    shape.style.height = '30vh';
+                    break;
+                case 'landscape':
+                    shape.style.width = '30vh';
+                    shape.style.height = '15vh';
+                    break;
+                default:
+                    throw "Unknown geometry value: " + geometry;
+                }
+            }
+        },
+        {
+            id: 'padding',
+            handler: function (e) {
+                var padding = e.target.value / 10;
+                shape.style.padding = padding + "vh";
+            }
+        },
+        {
+            id: 'border-width',
+            handler: function (e) {
+                var borderWidth = e.target.value / 10;
+                shape.style.borderWidth = borderWidth + "vh";
+            }
+        },
+        {
+            id: 'margin',
+            handler: function (e) {
+                var margin = e.target.value / 10;
+                shape.style.margin = margin + "vh";
+            }
+        },
+        {
+            id: 'shape-outside',
+            handler: function (e) {
+                var shapeOutside = e.target.value;
+                shape.style.shapeOutside = shapeOutside;
+                shape.style.webkitShapeOutside = shapeOutside;
+                shape.style.clipPath = shapeOutside;
+                shape.style.webkitClipPath = shapeOutside;
+            }
+        },
+        {
+            id: 'font-size',
+            handler: function (e) {
+                var fontSize = e.target.value / 10;
+                content.style.fontSize = fontSize + 'vh';
+            }
+        }
+    ].forEach(function (control) {
+        var element = document.getElementById(control.id);
+        element.onchange = control.handler;
+        element.oninput = control.handler;
+    });
+</script>

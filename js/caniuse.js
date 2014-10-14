@@ -38,9 +38,9 @@ var canIUse = (function () {
     var BROWSERS = ['chrome', 'firefox', 'ie', 'opera', 'safari', 'ios_saf', 'android', 'op_mob', 'and_chr', 'and_ff'];
 
     //  Customise HTML here
-    var TMPL_TITLE = '', // feature title {title}
-        TMPL_STATUS = '', // feature status (W3C Recommendation) {status}
-        TMPL_DESCRIPTION = '<h2>When can I use it?</h2>', // description to user
+    var TMPL_TITLE = '<h2>{title}</h2>', // feature title {title}
+        TMPL_STATUS = '<p>{status}</p>', // feature status (W3C Recommendation) {status}
+        TMPL_DESCRIPTION = '', // description to user
         TMPL_DESKTOP_TITLE = '<p>Desktop</p>', // desktop header
         TMPL_MOBILE_TITLE = '<p>Mobile</p>', // mobile header
         TMPL_SUPPORT_WRAPPER = '<table class="agents"><tbody><tr>{items}</tr></tbody></table>', // support wrapper {items}

@@ -1,0 +1,87 @@
+.caniuse {
+  padding: 10px;
+}
+.caniuse .agents,
+.caniuse .legend {
+  margin: 1em auto;
+}
+.caniuse .agents td,
+.caniuse .legend td {
+  padding: 0px;
+  text-align: center;
+  color: #002b36;
+}
+.caniuse .agents td {
+  height: 3em;
+  width: 2em;
+}
+.caniuse .agents td.y,
+.caniuse .legend td.y,
+.caniuse .agents td.x,
+.caniuse .legend td.x {
+  background: #cf9;
+}
+.caniuse .agents td.a,
+.caniuse .legend td.a {
+  background: #cd5;
+}
+.caniuse .agents td.p,
+.caniuse .legend td.p {
+  background: #aaf;
+}
+.caniuse .agents td.n,
+.caniuse .legend td.n {
+  background: #f99;
+}
+.caniuse .agents td.u,
+.caniuse .legend td.u {
+  background: #ccc;
+}
+.caniuse .agents td.icon-android {
+  background-image: url("../images/browser-logos/android.svg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+.caniuse .agents td.icon-chrome,
+.caniuse .agents td.icon-and_chr {
+  background-image: url("../images/browser-logos/chrome.svg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+.caniuse .agents td.icon-firefox,
+.caniuse .agents td.icon-and_ff {
+  background-image: url("../images/browser-logos/firefox.svg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+.caniuse .agents td.icon-ie,
+.caniuse .agents td.icon-windows {
+  background-image: url("../images/browser-logos/internet-explorer.svg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+.caniuse .agents td.icon-ios_saf {
+  background-image: url("../images/browser-logos/ios.svg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+.caniuse .agents td.icon-opera,
+.caniuse .agents td.icon-op_mini,
+.caniuse .agents td.icon-op_mob {
+  background-image: url("../images/browser-logos/opera.svg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+.caniuse .agents td.icon-safari {
+  background-image: url("../images/browser-logos/safari.svg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+.caniuse .legend {
+  border-top: 1px dotted #aaa;
+  margin: 20px auto 10px;
+  padding-top: 10px;
+}
+.caniuse .legend td {
+  font-size: 0.8em;
+}

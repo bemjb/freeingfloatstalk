@@ -20,6 +20,9 @@
         <!-- For syntax highlighting -->
         <link rel="stylesheet" href="lib/css/zenburn.css">
 
+        <!-- For caniuse widget -->
+        <link rel="stylesheet" href="/css/caniuse.css" />
+
         <!-- If the query includes 'print-pdf', include the PDF print sheet -->
         <script>
             if( window.location.search.match( /print-pdf/gi ) ) {
@@ -93,19 +96,15 @@
 
                     <ul>
                         <li><a href="http://www.w3.org/TR/css-shapes/">W3C Specification</a> by Adobe and Microsoft, in Candidate Recommendation stage</li>
-                        <li>Implemented in <a href="http://www.webkit.org/"</a>WebKit</a> (Safari) by Adobe and <a href="http://www.chromium.org/blink">Blink</a> (Chrome) by Adobe and Samsung</li>
-                        <li>Currently available in:
-                            <ul>
-                                <li>Chrome 37 Windows, OS X, Linux, and Android</li>
-                                <li>OS X Safari 6.2 (Mountain Lion), 7.1 (Mavericks), and 8 (Yosemite); iOS 8</li>
-                            </ul>
-                        </li>
-                        <li>No prefix in Chrome, but Safari has <code>-webkit</code> prefix</li>
+                        <li>Implemented in <a href="http://www.webkit.org/"</a>WebKit</a> (Safari) by Adobe and <a href="http://www.chromium.org/blink">Blink</a> (Chrome, Opera) by Adobe and Samsung</li>
                     </ul>
 
                     <aside class="notes">
 
                     </aside>
+                </section>
+                <section>
+                    <div class="caniuse" data-feature="css-shapes"></div>
                 </section>
                 <section>
                     <h2>shape-outside</h2>
@@ -413,5 +412,6 @@
 
         </script>
 
+        <script src="/js/caniuse.js" /></script>
     </body>
 </html>

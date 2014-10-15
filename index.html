@@ -43,21 +43,6 @@
                 background-color: rgba(0, 43, 54, 0.8);
                 padding: 2% 0;
             }
-            .reveal .shape-container {
-                margin-left: auto;
-                margin-right: auto;
-                width: 70%;
-                text-align: left;
-            }
-            .reveal #polygon-shape {
-                float: left;
-                height: 100px;
-                width: 100px;
-                -webkit-shape-outside: polygon(0 0, 100% 0, 50% 100%);
-                shape-outside: polygon(0 0, 100% 0, 50% 100%);
-                -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
-                background-color: #93a1a1;
-            }
         </style>
     </head>
 
@@ -323,13 +308,30 @@
                     </aside>
                 </section>
                 <section>
+                    <style>
+                        .reveal #polygon-shape-container {
+                            margin-left: auto;
+                            margin-right: auto;
+                            width: 70%;
+                            text-align: left;
+                        }
+                        .reveal #polygon-shape {
+                            float: left;
+                            height: 100px;
+                            width: 100px;
+                            -webkit-shape-outside: polygon(0 0, 100% 0, 50% 100%);
+                            shape-outside: polygon(0 0, 100% 0, 50% 100%);
+                            -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
+                            background-color: #93a1a1;
+                        }
+                    </style>
                     <h2>Basic Shape: polygon()</h2>
 
                     <pre><code class="css" data-trim>
 #triangle { shape-outside: polygon(0 0, 100% 0, 50% 100%); }
                     </code></pre>
 
-                    <p class="shape-container">
+                    <p id="polygon-shape-container">
                         <span id="polygon-shape"></span>
                         A polygon with less than 3 vertices is invalid.<br/>
                         A polygon will always be closed by drawing a line from the last point specified to the initial point.<br/>

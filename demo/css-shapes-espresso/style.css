@@ -34,19 +34,6 @@ p {
   float: left;
 }
 
-.spoon{
-  -webkit-shape-outside: url(spoon.png);
-  -webkit-shape-margin: 0.5em;
-
-  shape-outside: url(spoon.png);
-  shape-margin: 0.5em;
-
-  margin: 1em -10% 1em 1em;
-  width: 250px;
-  height: 420px;
-  float: right;
-}
-
 .credits{
   margin: 2em 0;
   font-style: italic;

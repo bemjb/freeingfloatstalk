@@ -188,27 +188,6 @@
                     </aside>
                 </section>
                 <section>
-                    <h2>Reference Boxes</h2>
-
-                    <ul>
-                        <li>Basic shapes are sized and positioned relative to the element that the shape applies to.</li>
-                        <li>Percentages used to position or size shapes are precentages of the reference box dimensions.</li>
-                        <li>By default, the shape's coordinates are relative to the margin box of the element</li>
-                        <li>This can be changed by specifying one of the box shapes along with the basic shape</li>
-                        <li>For example:
-                            <pre><code class="css" data-trim>
-.basic-shape-reference-box {
-    shape-outside: circle() content-box;
-}
-                            </code></pre>
-                        </li>
-                    </ul>
-
-                    <aside class="notes">
-
-                    </aside>
-                </section>
-                <section>
                     <h2>Basic Shape: inset()</h2>
 
                     <pre><code class="css" data-trim>
@@ -235,6 +214,34 @@
                     </code></pre>
 
                     <p>Rounded corners use <a href="http://dev.w3.org/csswg/css-backgrounds-3/#border-radius">border radius syntax</a>.</p>
+
+                    <aside class="notes">
+
+                    </aside>
+                </section>
+                <section>
+                    <h2>Basic Shape: circle()</h2>
+
+                    <pre><code class="css" data-trim>
+#zero-arg-circle {
+    /* radius closest-side, positioned at center of reference box */
+    shape-outside: circle();
+}
+                    </code></pre>
+
+                    <aside class="notes">
+
+                    </aside>
+                </section>
+                <section>
+                    <h2>Basic Shape: ellipse()</h2>
+
+                    <pre><code class="css" data-trim>
+#zero-arg-ellipse {
+    /* rx = ry = closest-side, positioned at center of reference box */
+    shape-outside: ellipse();
+}
+                    </code></pre>
 
                     <aside class="notes">
 
@@ -280,34 +287,6 @@
                     </aside>
                 </section>
                 <section>
-                    <h2>Basic Shape: circle()</h2>
-
-                    <pre><code class="css" data-trim>
-#zero-arg-circle {
-    /* radius closest-side, positioned at center of reference box */
-    shape-outside: circle();
-}
-                    </code></pre>
-
-                    <aside class="notes">
-
-                    </aside>
-                </section>
-                <section>
-                    <h2>Basic Shape: ellipse()</h2>
-
-                    <pre><code class="css" data-trim>
-#zero-arg-ellipse {
-    /* rx = ry = closest-side, positioned at center of reference box */
-    shape-outside: ellipse();
-}
-                    </code></pre>
-
-                    <aside class="notes">
-
-                    </aside>
-                </section>
-                <section>
                     <style>
                         .reveal #polygon-shape-container {
                             margin-left: auto;
@@ -342,11 +321,24 @@
                     </aside>
                 </section>
                 <section>
-                    <h2>Basic Shape Demo</h2>
-                    <iframe style="overflow: hidden;" class="stretch" scrolling="no" seamless="seamless" src="demo/basic-shape-demo/index.html"></iframe>
+                    <h2>Reference Boxes</h2>
+
+                    <ul>
+                        <li>Basic shapes are sized and positioned relative to the element that the shape applies to.</li>
+                        <li>Percentages used to position or size shapes are precentages of the reference box dimensions.</li>
+                        <li>By default, the shape's coordinates are relative to the margin box of the element</li>
+                        <li>This can be changed by specifying one of the box shapes along with the basic shape</li>
+                        <li>For example:
+                            <pre><code class="css" data-trim>
+.basic-shape-reference-box {
+    shape-outside: circle() content-box;
+}
+                            </code></pre>
+                        </li>
+                    </ul>
 
                     <aside class="notes">
-                        Need to put in notes on what demos to do here.
+
                     </aside>
                 </section>
                 <section>
@@ -413,15 +405,6 @@
     shape-margin: 0.5em;
 }
                     </code></pre>
-
-                    <aside class="notes">
-
-                    </aside>
-                </section>
-                <section>
-                    <h2>Image Shape Demo</h2>
-
-                    INSERT DEMO IFRAME HERE
 
                     <aside class="notes">
 

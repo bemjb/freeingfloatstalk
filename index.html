@@ -43,6 +43,12 @@
                 background-color: rgba(0, 43, 54, 0.8);
                 padding: 2% 0;
             }
+            .demo-container p {
+                text-align: left;
+            }
+            .demo-container input {
+                font-size: inherit;
+            }
         </style>
     </head>
 
@@ -119,15 +125,9 @@
                             background-color: darkblue;
                             padding: 0em 1em;
                         }
-                        #box-model-shape-content p {
-                            text-align: left;
-                        }
-                        #box-model-shape-content input {
-                            font-size: inherit;
-                        }
                     </style>
                     <h2>Box (Model) Shapes</h2>
-                    <div class="stretch">
+                    <div class="stretch demo-container">
                         <div id="box-model-shape">
                             <div id="box-model-shape-content">
                                 <p>
@@ -152,25 +152,27 @@
                                 </p>
                             </div>
                         </div>
-                        <p style="text-align: left;">Annancy is a legendary being whose chief characteristic is trickery. A strong and good workman, he is invariably lazy, and is only to be tempted to honest labour by the offer of a large reward. He prefers to fill the bag which he always carries, by fraud or theft. His appetite is voracious, and nothing comes amiss to him, cooked or raw. No sooner is one gluttonous feast over than he is ready for another, and endless are his shifts and devices to supply himself with food. Sometimes he will thrust himself upon an unwilling neighbour, and eat up all his breakfast. At another time he carries out his bag and brings it home full of flesh or fish obtained by thieving. He is perfectly selfish, and knows no remorse for his many deeds of violence, treachery and cruelty. His only redeeming point is a sort of hail-fellow-well-met-ness, which appeals so much to his associates that they are ready almost, if not quite, to condone his offences.</p>
+                        <p>Annancy is a legendary being whose chief characteristic is trickery. A strong and good workman, he is invariably lazy, and is only to be tempted to honest labour by the offer of a large reward. He prefers to fill the bag which he always carries, by fraud or theft. His appetite is voracious, and nothing comes amiss to him, cooked or raw. No sooner is one gluttonous feast over than he is ready for another, and endless are his shifts and devices to supply himself with food. Sometimes he will thrust himself upon an unwilling neighbour, and eat up all his breakfast. At another time he carries out his bag and brings it home full of flesh or fish obtained by thieving. He is perfectly selfish, and knows no remorse for his many deeds of violence, treachery and cruelty. His only redeeming point is a sort of hail-fellow-well-met-ness, which appeals so much to his associates that they are ready almost, if not quite, to condone his offences.</p>
                     </div>
                     <script>
-                        var boxModelShape = document.getElementById('box-model-shape');
-                        var handler = function (e) {
-                            var shapeOutside = e.target.value;
-                            boxModelShape.style.shapeOutside = shapeOutside;
-                            boxModelShape.style.webkitShapeOutside = shapeOutside;
-                        };
-                        [ 'box-model-shape-none',
-                            'box-model-shape-margin-box',
-                            'box-model-shape-border-box',
-                            'box-model-shape-padding-box',
-                            'box-model-shape-content-box',
-                        ].forEach(function (id) {
-                            var element = document.getElementById(id);
-                            element.onchange = handler;
-                            element.oninput = handler;
-                        });
+                        (function () {
+                            var boxModelShape = document.getElementById('box-model-shape');
+                            var handler = function (e) {
+                                var shapeOutside = e.target.value;
+                                boxModelShape.style.shapeOutside = shapeOutside;
+                                boxModelShape.style.webkitShapeOutside = shapeOutside;
+                            };
+                            [ 'box-model-shape-none',
+                                'box-model-shape-margin-box',
+                                'box-model-shape-border-box',
+                                'box-model-shape-padding-box',
+                                'box-model-shape-content-box',
+                            ].forEach(function (id) {
+                                var element = document.getElementById(id);
+                                element.onchange = handler;
+                                element.oninput = handler;
+                            });
+                        })();
                     </script>
                 </section>
                 <section>
@@ -188,20 +190,124 @@
                     </aside>
                 </section>
                 <section>
+                    <style>
+                        #inset-shape {
+                            float: left;
+                            width: 10em;
+                            height: 10em;
+                            background-color: darkblue;
+                        }
+                        #inset-shape-visualization {
+                            box-sizing: border-box;
+                            position: relative;
+                            width: 100%;
+                            height: 100%;
+                            border: 4px solid #93a1a1;
+                        }
+                        #inset-shape-controls {
+                            width: 50%;
+                            background-color: #3F3F3F;
+                            position: absolute;
+                            bottom: 10%;
+                            left: 25%;
+                            padding: 0px 2em;
+                        }
+                    </style>
                     <h2>Basic Shape: inset()</h2>
 
-                    <pre><code class="css" data-trim>
-#one-arg-inset { shape-outside: inset(5%); /* top = right = bottom = left = 5% */ }
-#two-arg-inset { shape-outside: inset(5% 10%); /* top = bottom = 5%, right = left = 10% */ }
-#three-arg-inset { shape-outside: inset(5% 10% 15%); /* top = 5%, right = left = 10%, bottom = 15% */ }
-#four-arg-inset { shape-outside: inset(5% 10% 15% 20%); /* top = 5%, right = 10%, bottom = 15%, left = 20% */ }
-                    </code></pre>
+                    <div class="stretch demo-container">
+                        <div id="inset-shape">
+                            <div id="inset-shape-visualization"></div>
+                        </div>
+                        <p>Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, 'and what is the use of a book,' thought Alice 'without pictures or conversations?'</p>
+                        <p>So she was considering in her own mind (as well as she could, for the hot day made her feel very sleepy and stupid), whether the pleasure of making a daisy-chain would be worth the trouble of getting up and picking the daisies, when suddenly a White Rabbit with pink eyes ran close by her.</p>
+                        <p>There was nothing so very remarkable in that; nor did Alice think it so very much out of the way to hear the Rabbit say to itself, 'Oh dear! Oh dear! I shall be late!' (when she thought it over afterwards, it occurred to her that she ought to have wondered at this, but at the time it all seemed quite natural); but when the Rabbit actually took a watch out of its waistcoat-pocket, and looked at it, and then hurried on, Alice started to her feet, for it flashed across her mind that she had never before seen a rabbit with either a waistcoat-pocket, or a watch to take out of it, and burning with curiosity, she ran across the field after it, and fortunately was just in time to see it pop down a large rabbit-hole under the hedge.</p>
+                        <div id="inset-shape-controls">
+                            <p>
+                                <input type="radio" id="inset-shape-none" name="inset-shape" value="none" checked>
+                                <label for="inset-shape-none"><code class="css">none</code></label>
+                            </p>
+                            <p>
+                                <input type="radio" id="inset-shape-one" name="inset-shape" value="inset(10%)">
+                                <label for="inset-shape-one"><code class="css">inset(10%)</code></label>
+                            </p>
+                            <p>
+                                <input type="radio" id="inset-shape-two" name="inset-shape" value="inset(10% 20%)">
+                                <label for="inset-shape-two"><code class="css">inset(10% 20%)</code></label>
+                            </p>
+                            <p>
+                                <input type="radio" id="inset-shape-three" name="inset-shape" value="inset(10% 20% 30%)">
+                                <label for="inset-shape-three"><code class="css">inset(10% 20% 30%)</code></label>
+                            </p>
+                            <p>
+                                <input type="radio" id="inset-shape-four" name="inset-shape" value="inset(10% 20% 30% 40%)">
+                                <label for="inset-shape-four"><code class="css">inset(10% 20% 30% 40%)</code></label>
+                            </p>
+                        </div>
+                    </div>
 
-                    <p>Works the same way as <a href="http://www.w3.org/TR/CSS21/box.html#propdef-margin">the margin shorthand</a>.</p>
 
                     <aside class="notes">
+                        <pre><code class="css" data-trim>
+    #one-arg-inset { shape-outside: inset(5%); /* top = right = bottom = left = 5% */ }
+    #two-arg-inset { shape-outside: inset(5% 10%); /* top = bottom = 5%, right = left = 10% */ }
+    #three-arg-inset { shape-outside: inset(5% 10% 15%); /* top = 5%, right = left = 10%, bottom = 15% */ }
+    #four-arg-inset { shape-outside: inset(5% 10% 15% 20%); /* top = 5%, right = 10%, bottom = 15%, left = 20% */ }
+                        </code></pre>
 
+                        <p>Works the same way as <a href="http://www.w3.org/TR/CSS21/box.html#propdef-margin">the margin shorthand</a>.</p>
                     </aside>
+                    <script>
+                        (function () {
+                            var insetShape = document.getElementById('inset-shape');
+                            var visualization = document.getElementById('inset-shape-visualization');
+                            var insetRegex = /inset\(\s*(\S+)(?:\s+(\S+)(?:\s+(\S+)(?:\s+(\S+))?)?)?\s*\)/;
+                            var handler = function (e) {
+                                var shapeOutside = e.target.value;
+                                var match = insetRegex.exec(shapeOutside);
+                                var top = '0px', right = '0px', bottom = '0px', left = '0px';
+                                insetShape.style.shapeOutside = shapeOutside;
+                                insetShape.style.webkitShapeOutside = shapeOutside;
+
+                                if (match) {
+                                    if (match[4]) {
+                                        top = match[1];
+                                        right = match[2];
+                                        bottom = match[3];
+                                        left = match[4];
+                                    }
+                                    else if (match[3]) {
+                                        top = match[1];
+                                        right = left = match[2];
+                                        bottom = match[3];
+                                    }
+                                    else if (match[2]) {
+                                        top = bottom = match[1];
+                                        right = left = match[2];
+                                    }
+                                    else {
+                                        top = right = bottom = left = match[1];
+                                    }
+                                }
+
+                                visualization.style.top = top;
+                                visualization.style.left = left;
+                                visualization.style.width = 'calc(100% - ' + left + ' - ' + right + ')';
+                                visualization.style.height = 'calc(100% - ' + top + ' - ' + bottom + ')';
+                            };
+                            [
+                                'inset-shape-none',
+                                'inset-shape-one',
+                                'inset-shape-two',
+                                'inset-shape-three',
+                                'inset-shape-four'
+                            ].forEach(function (id) {
+                                var element = document.getElementById(id);
+                                element.onchange = handler;
+                                element.oninput = handler;
+                            });
+                        })();
+                    </script>
                 </section>
                 <section>
                     <h2>Basic Shape: inset() with rounded corners</h2>

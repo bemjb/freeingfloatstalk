@@ -743,8 +743,6 @@
                             float: left;
                             shape-outside: url("images/hyperbolic_triangle.svg");
                             -webkit-shape-outside: url("images/hyperbolic_triangle.svg");
-                            shape-margin: 0.2em;
-                            -webkit-shape-margin: 0.2em;
                             border: none;
                             width: 10em;
                             background: none;
@@ -753,11 +751,13 @@
                     <h2>Image Shapes</h2>
 
                     <pre><code>
-#image { shape-outside: url("images/hyperbolic_triangle.svg"); }
+#image {
+    shape-outside: url("images/hyperbolic_triangle.svg");
+}
                     </code></pre>
 
                     <div class="shape-container">
-                        <img id="image-shape" src="images/hyperbolic_triangle.svg"><br>
+                        <img id="image-shape" src="images/hyperbolic_triangle.svg">
                         <p>Alpha channel of the image defines the shape</p>
                         <p>Always sized and positioned based on the content box of the float</p>
                     </div>
@@ -765,6 +765,90 @@
                     <aside class="notes">
 
                     </aside>
+                </section>
+                <section>
+                    <style>
+                        .image-shape-margin {
+                            shape-margin: 0.5em;
+                            -webkit-shape-margin: 0.5em;
+                        }
+                    </style>
+                    <h2>shape-margin</h2>
+
+                    <pre><code class="css" data-trim>
+#shape-margin {
+    shape-outside: url("images/hyperbolic_triangle.svg");
+    shape-margin: 0.5em;
+}
+                    </code></pre>
+
+                    <div class="shape-container">
+                        <img id="image-shape" class="image-shape-margin" src="images/hyperbolic_triangle.svg">
+                        <p>Alpha channel of the image defines the shape</p>
+                        <p>Always sized and positioned based on the content box of the float</p>
+                    </div>
+
+
+                    <aside class="notes">
+
+                    </aside>
+                </section>
+                <section>
+                    <style>
+                        #gradient-shape {
+                            float: left;
+                            width: 20em;
+                            height: 10em;
+                            background: radial-gradient(10em circle at left, #268bd2, transparent 50%);
+                            shape-outside: radial-gradient(10em circle at left, #268bd2, transparent 50%);
+                            -webkit-shape-outside: radial-gradient(10em circle at left, #268bd2, transparent 50%);
+                            shape-image-threshold: 0;
+                            -webkit-shape-image-threshold: 0;
+                        }
+                    </style>
+                    <h2>Image Shapes: shape-image-threshold</h2>
+
+                    <pre><code id="shape-image-threshold-code" class="css" data-trim>
+#image-threshold {
+    shape-outside: radial-gradient(10em circle at left, #268bd2, transparent 50%);
+    shape-image-threshold: 0;
+}
+                    </code></pre>
+
+                    <div class="shape-container">
+                        <div id="gradient-shape"></div>
+                        <p>Any pixels with opacity below the threshold are not considered part of the shape</p>
+                        <p>Range is from <code>0.0</code> (transparent) to <code>1.0</code> (opaque)</p>
+                        <p>Defaults to <code>0.0</code></p>
+                        <div id="gradient-shape-controls" class="shape-controls drop-shadow">
+                            <p>
+                                <label for="shape-image-threshold-control"><code class="css">shape-image-threshold</code></label>
+                                <input type="range" id="shape-image-threshold-control" value="0.0" step="0.01" max="1.0">
+                            </p>
+                        </div>
+                    </div>
+
+                    <aside class="notes">
+
+                    </aside>
+
+                    <script>
+                        (function () {
+                            var shape = document.getElementById("gradient-shape");
+                            var thresholdControl = document.getElementById("shape-image-threshold-control");
+                            var shapeCode = document.getElementById("shape-image-threshold-code");
+                            var handler = function (e) {
+                                var threshold = thresholdControl.value;
+                                shape.style.shapeImageThreshold = threshold;
+                                shape.style.webkitShapeImageThreshold = threshold;
+
+                                shapeCode.innerHTML = '#image-threshold {\n    shape-outside: radial-gradient(10em circle at left, #268bd2, transparent 50%);\n    shape-image-threshold: ' + threshold + ';\n}';
+                                hljs.highlightBlock(shapeCode);
+                            };
+                            thresholdControl.onchange = handler;
+                            thresholdControl.oninput = handler;
+                        })();
+                    </script>
                 </section>
                 <section>
                     <h2>Image Shapes: Supported images</h2>
@@ -786,44 +870,9 @@
                     </aside>
                 </section>
                 <section>
-                    <h2>Image Shapes: shape-image-threshold</h2>
-
-                    <pre><code class="css" data-trim>
-#image-threshold {
-    shape-outside: url(another-image.png);
-    shape-image-threshold: 0.3;
-}
-                    </code></pre>
-
-                    <ul>
-                        <li>Any pixels with opacity below the threshold are not considered part of the shape</li>
-                        <li>Range is from <code>0.0</code> (transparent) to <code>1.0</code> (opaque)</li>
-                        <li>Defaults to <code>0.0</code></li>
-                    </ul>
-
-                    <aside class="notes">
-
-                    </aside>
-                </section>
-                <section>
-                    <h2>shape-margin</h2>
-
-                    <pre><code class="css" data-trim>
-#shape-margin {
-    shape-outside: url(another-image.png);
-    shape-margin: 0.5em;
-}
-                    </code></pre>
-
-                    <aside class="notes">
-
-                    </aside>
-                </section>
-                <section>
-                    <h2>What will you do with Shapes?</h2>
-
-                    <aside class="notes">
-                    </aside>
+                    <h2>What will you do with shapes?</h2>
+                    <p><a href="http://bemjb.github.io/freeingfloatstalk/">http://bemjb.github.io/freeingfloatstalk/</a></p>
+                    <p><a href="https://twitter.com/bemjb">@bemjb</a></p>
                 </section>
                 <section>
                     <h2>Useful Links</h2>
@@ -836,11 +885,6 @@
                         <li><a href="http://alistapart.com/blog/post/moving-forward-with-css-shapes/">Moving Forward with CSS Shapes</a> by Sara Soueidan</li>
                         <li><a href="http://www.sitepoint.com/css-shapes-breaking-rectangular-design/">CSS Shapes: Breaking the Rectangular Design Shackles</a> by Patrick Catanzariti</li>
                     </ul>
-                </section>
-                <section>
-                    <h1>Thanks!</h1>
-                    <p><a href="http://bemjb.github.io/freeingfloatstalk/">http://bemjb.github.io/freeingfloatstalk/</a></p>
-                    <p><a href="https://twitter.com/bemjb">@bemjb</a></p>
                 </section>
             </div>
 

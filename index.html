@@ -62,7 +62,7 @@
                 left: 20%;
                 bottom: 5%;
             }
-            p.shape-container {
+            div.shape-container {
                 margin-left: auto;
                 margin-right: auto;
                 width: 70%;
@@ -683,12 +683,17 @@
                     <style>
                         #polygon-shape {
                             float: left;
-                            height: 100px;
-                            width: 100px;
+                            height: 10em;
+                            width: 10em;
                             -webkit-shape-outside: polygon(0 0, 100% 0, 50% 100%);
                             shape-outside: polygon(0 0, 100% 0, 50% 100%);
+                            background-color: darkblue;
+                        }
+                        #polygon-shape-visualization {
+                            width: 100%;
+                            height: 100%;
                             -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
-                            background-color: #93a1a1;
+                            background-color: cyan;
                         }
                     </style>
                     <h2>Basic Shape: polygon()</h2>
@@ -697,11 +702,13 @@
 #triangle { shape-outside: polygon(0 0, 100% 0, 50% 100%); }
                     </code></pre>
 
-                    <p class="shape-container">
-                        <span id="polygon-shape"></span>
-                        A polygon with less than 3 vertices is invalid.<br/>
-                        A polygon will always be closed by drawing a line from the last point specified to the initial point.<br/>
-                    </p>
+                    <div class="shape-container">
+                        <div id="polygon-shape">
+                            <div id="polygon-shape-visualization"></div>
+                        </div>
+                        <p>A polygon with less than 3 vertices is invalid.</p>
+                        <p>A polygon will always be closed by drawing a line from the last point specified to the initial point.</p>
+                    </div>
 
                     <aside class="notes">
 
@@ -747,11 +754,11 @@
 #image { shape-outside: url("images/hyperbolic_triangle.svg"); }
                     </code></pre>
 
-                    <p class="shape-container">
+                    <div class="shape-container">
                         <img id="image-shape" src="images/hyperbolic_triangle.svg"><br>
-                        Alpha channel of the image defines the shape<br><br>
-                        Always sized and positioned based on the content box of the float
-                    </p>
+                        <p>Alpha channel of the image defines the shape</p>
+                        <p>Always sized and positioned based on the content box of the float</p>
+                    </div>
 
                     <aside class="notes">
 

@@ -359,18 +359,154 @@
                     </aside>
                 </section>
                 <section>
+                    <style>
+                        #circle-shape {
+                            float: left;
+                            width: 10em;
+                            height: 7em;
+                            shape-outside: circle();
+                            -webkit-shape-outside: circle();
+                            background-color: darkblue;
+                            overflow: hidden;
+                        }
+                        #circle-shape-visualization {
+                            width: 100%;
+                            height: 100%;
+                            -webkit-clip-path: circle();
+                            background-color: cyan;
+                        }
+                        #circle-shape-controls {
+                            width: 50%;
+                            background-color: #3F3F3F;
+                            position: absolute;
+                            bottom: 10%;
+                            left: 25%;
+                            padding: 0.5em 2em;
+                        }
+                    </style>
                     <h2>Basic Shape: circle()</h2>
 
-                    <pre><code class="css" data-trim>
-#zero-arg-circle {
-    /* radius closest-side, positioned at center of reference box */
-    shape-outside: circle();
-}
-                    </code></pre>
+                    <div class="stretch demo-container">
+                        <div id="circle-shape"><div id="circle-shape-visualization"></div></div>
+                        <p>To Sherlock Holmes she is always the woman. I have seldom heard him mention her under any other name. In his eyes she eclipses and predominates the whole of her sex. It was not that he felt any emotion akin to love for Irene Adler. All emotions, and that one particularly, were abhorrent to his cold, precise but admirably balanced mind. He was, I take it, the most perfect reasoning and observing machine that the world has seen, but as a lover he would have placed himself in a false position. He never spoke of the softer passions, save with a gibe and a sneer. They were admirable things for the observer—excellent for drawing the veil from men’s motives and actions. But for the trained reasoner to admit such intrusions into his own delicate and finely adjusted temperament was to introduce a distracting factor which might throw a doubt upon all his mental results. Grit in a sensitive instrument, or a crack in one of his own high-power lenses, would not be more disturbing than a strong emotion in a nature such as his. And yet there was but one woman to him, and that woman was the late Irene Adler, of dubious and questionable memory.</p>
+                        <div id="circle-shape-controls">
+                            <p>
+                                <input type="radio" id="circle-shape-closest-side" name="circle-shape" value="circle()" checked>
+                                <label for="circle-shape-closest-side"><code class="css">circle()</code></label>
+                            </p>
+                            <p>
+                                <input type="radio" id="circle-shape-farthest-side" name="circle-shape" value="circle(farthest-side)">
+                                <label for="circle-shape-farthest-side"><code class="css">circle(farthest-side)</code></label>
+                            </p>
+                            <p>
+                                <input type="radio" id="circle-shape-closest-side-move" name="circle-shape" value="circle(closest-side at centerX centerY)">
+                                <label for="circle-shape-closest-side-move"><code class="css">circle(closest-side at 50% 50%)</code></label>
+                            </p>
+                            <p>
+                                <input type="radio" id="circle-shape-farthest-side-move" name="circle-shape" value="circle(farthest-side at centerX centerY)">
+                                <label for="circle-shape-farthest-side-move"><code class="css">circle(farthest-side at 50% 50%)</code></label>
+                            </p>
+                            <p>
+                                <span style="margin-right: 3em">
+                                    <label for="circle-shape-x-move">centerX</label>
+                                    <input type="range" id="circle-shape-x-move" value="50" disabled>
+                                </span>
+                                <span>
+                                    <label for="circle-shape-y-move">centerY</label>
+                                    <input type="range" id="circle-shape-y-move" value="50" disabled>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
 
                     <aside class="notes">
 
                     </aside>
+
+                    <script>
+                        (function () {
+                            var circleShape = document.getElementById('circle-shape');
+                            var visualization = document.getElementById('circle-shape-visualization');
+                            var shapeX = document.getElementById("circle-shape-x-move");
+                            var shapeY = document.getElementById("circle-shape-y-move");
+                            var selectedShapeMoveLabel;
+                            var selectedShape = 'circle()';
+                            var isMoveShapeSelected = function () {
+                                return !shapeX.disabled || !shapeY.disabled;
+                            }
+                            var updateShape = function (shape) {
+                                circleShape.style.shapeOutside = shape;
+                                circleShape.style.webkitShapeOutside = shape;
+                                visualization.style.webkitClipPath = shape;
+                            };
+                            var resetMoveShape = function () {
+                                shapeX.value = 50;
+                                shapeY.value = 50;
+                                moveHandler();
+                            };
+                            var defaultHandler = function (e) {
+                                if (isMoveShapeSelected()) {
+                                    resetMoveShape();
+                                    shapeX.disabled = true;
+                                    shapeY.disabled = true;
+                                }
+
+                                selectedShape = e.target.value;
+                                updateShape(selectedShape);
+                                selectedShapeMoveLabel = null;
+                            };
+                            var selectMoveShapeHandler = function (e) {
+                                if (selectedShape != e.target.value) {
+                                    if (isMoveShapeSelected()) {
+                                        resetMoveShape();
+                                    }
+                                    else {
+                                        shapeX.disabled = false;
+                                        shapeY.disabled = false;
+                                    }
+                                    selectedShape = e.target.value;
+                                    selectedShapeMoveLabel = document.querySelector('label[for="' + e.target.id + '"] code');
+                                }
+
+                                moveHandler(e);
+                            };
+                            var moveHandler = function (e) {
+                                var shapeOutside = selectedShape.replace(/centerX/, shapeX.value + '%').replace(/centerY/, shapeY.value + '%');
+                                updateShape(shapeOutside);
+                                selectedShapeMoveLabel.innerHTML = shapeOutside;
+                            };
+                            [
+                                {
+                                    id: 'circle-shape-closest-side',
+                                    handler: defaultHandler
+                                },
+                                {
+                                    id: 'circle-shape-farthest-side',
+                                    handler: defaultHandler
+                                },
+                                {
+                                    id: 'circle-shape-closest-side-move',
+                                    handler: selectMoveShapeHandler
+                                },
+                                {
+                                    id: 'circle-shape-farthest-side-move',
+                                    handler: selectMoveShapeHandler
+                                },
+                                {
+                                    id: 'circle-shape-x-move',
+                                    handler: moveHandler
+                                },
+                                {
+                                    id: 'circle-shape-y-move',
+                                    handler: moveHandler
+                                }
+                            ].forEach(function (control) {
+                                var element = document.getElementById(control.id);
+                                element.onchange = control.handler;
+                                element.oninput = control.handler;
+                            });
+                        })();
+                    </script>
                 </section>
                 <section>
                     <h2>Basic Shape: ellipse()</h2>

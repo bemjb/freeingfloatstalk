@@ -676,43 +676,47 @@
                     </aside>
                 </section>
                 <section>
-                    <style>
-                        #polygon-shape {
-                            float: left;
-                            height: 10em;
-                            width: 10em;
-                            -webkit-shape-outside: polygon(0 0, 100% 0, 50% 100%);
-                            shape-outside: polygon(0 0, 100% 0, 50% 100%);
-                            background-color: darkblue;
-                        }
-                        #polygon-shape-visualization {
-                            width: 100%;
-                            height: 100%;
-                            -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
-                            background-color: #93a1a1;
-                        }
-                    </style>
-                    <h2>Basic Shape: polygon()</h2>
+                    <section>
+                        <style>
+                            #polygon-shape {
+                                float: left;
+                                height: 10em;
+                                width: 10em;
+                                -webkit-shape-outside: polygon(0 0, 100% 0, 50% 100%);
+                                shape-outside: polygon(0 0, 100% 0, 50% 100%);
+                                background-color: darkblue;
+                            }
+                            #polygon-shape-visualization {
+                                width: 100%;
+                                height: 100%;
+                                -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
+                                background-color: #93a1a1;
+                            }
+                        </style>
+                        <h2>Basic Shape: polygon()</h2>
 
-                    <pre><code class="css" data-trim>
+                        <pre><code class="css" data-trim>
 #triangle {
     shape-outside: polygon(0 0, 100% 0, 50% 100%);
 }
-                    </code></pre>
+                        </code></pre>
 
-                    <div class="shape-container">
-                        <div id="polygon-shape">
-                            <div id="polygon-shape-visualization"></div>
+                        <div class="shape-container">
+                            <div id="polygon-shape">
+                                <div id="polygon-shape-visualization"></div>
+                            </div>
+                            <p>A polygon with less than 3 vertices is invalid.</p>
+                            <p>A polygon will always be closed by drawing a line from the last point specified to the initial point.</p>
                         </div>
-                        <p>A polygon with less than 3 vertices is invalid.</p>
-                        <p>A polygon will always be closed by drawing a line from the last point specified to the initial point.</p>
-                    </div>
+                    </section>
+                    <section data-background="images/shape-editor.gif">
 
-                    <p style="clear: both"><a href="http://blogs.adobe.com/webplatform/2014/09/03/css-shapes-editor-for-chrome/">CSS Shapes Editor for Chrome</a></p>
+                        <p class="transparent-bg"><a href="http://blogs.adobe.com/webplatform/2014/09/03/css-shapes-editor-for-chrome/">CSS Shapes Editor for Chrome</a></p>
 
-                    <aside class="notes">
+                        <aside class="notes">
 
-                    </aside>
+                        </aside>
+                    </section>
                 </section>
                 <section>
                     <h2>Reference Boxes</h2>

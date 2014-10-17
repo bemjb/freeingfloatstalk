@@ -358,322 +358,324 @@
                     </aside>
                 </section>
                 <section>
-                    <style>
-                        #circle-shape {
-                            float: left;
-                            width: 10em;
-                            height: 7em;
-                            shape-outside: circle();
-                            -webkit-shape-outside: circle();
-                            background-color: darkblue;
-                            overflow: hidden;
-                        }
-                        #circle-shape-visualization {
-                            width: 100%;
-                            height: 100%;
-                            -webkit-clip-path: circle();
-                            background-color: #93a1a1;
-                        }
-                    </style>
-                    <h2>Basic Shape: circle()</h2>
-
-                    <div class="stretch demo-container">
-                        <div id="circle-shape"><div id="circle-shape-visualization"></div></div>
-                        <p class="demo-text">To Sherlock Holmes she is always the woman. I have seldom heard him mention her under any other name. In his eyes she eclipses and predominates the whole of her sex. It was not that he felt any emotion akin to love for Irene Adler. All emotions, and that one particularly, were abhorrent to his cold, precise but admirably balanced mind. He was, I take it, the most perfect reasoning and observing machine that the world has seen, but as a lover he would have placed himself in a false position. He never spoke of the softer passions, save with a gibe and a sneer. They were admirable things for the observer—excellent for drawing the veil from men’s motives and actions. But for the trained reasoner to admit such intrusions into his own delicate and finely adjusted temperament was to introduce a distracting factor which might throw a doubt upon all his mental results. Grit in a sensitive instrument, or a crack in one of his own high-power lenses, would not be more disturbing than a strong emotion in a nature such as his. And yet there was but one woman to him, and that woman was the late Irene Adler, of dubious and questionable memory.</p>
-                        <div id="circle-shape-controls" class="shape-controls drop-shadow">
-                            <p>
-                                <input type="radio" id="circle-shape-closest-side" name="circle-shape" value="circle()" checked>
-                                <label for="circle-shape-closest-side"><code class="css">circle()</code></label>
-                            </p>
-                            <p>
-                                <input type="radio" id="circle-shape-farthest-side" name="circle-shape" value="circle(farthest-side)">
-                                <label for="circle-shape-farthest-side"><code class="css">circle(farthest-side)</code></label>
-                            </p>
-                            <p>
-                                <input type="radio" id="circle-shape-closest-side-move" name="circle-shape" value="circle(closest-side at centerX centerY)">
-                                <label for="circle-shape-closest-side-move"><code class="css">circle(closest-side at 50% 50%)</code></label>
-                            </p>
-                            <p>
-                                <input type="radio" id="circle-shape-farthest-side-move" name="circle-shape" value="circle(farthest-side at centerX centerY)">
-                                <label for="circle-shape-farthest-side-move"><code class="css">circle(farthest-side at 50% 50%)</code></label>
-                            </p>
-                            <p>
-                                <span style="margin-right: 3em">
-                                    <label for="circle-shape-x-move">centerX</label>
-                                    <input type="range" id="circle-shape-x-move" value="50" disabled>
-                                </span>
-                                <span>
-                                    <label for="circle-shape-y-move">centerY</label>
-                                    <input type="range" id="circle-shape-y-move" value="50" disabled>
-                                </span>
-                            </p>
-                        </div>
-                    </div>
-
-                    <aside class="notes">
-
-                    </aside>
-
-                    <script>
-                        (function () {
-                            var circleShape = document.getElementById('circle-shape');
-                            var visualization = document.getElementById('circle-shape-visualization');
-                            var shapeX = document.getElementById("circle-shape-x-move");
-                            var shapeY = document.getElementById("circle-shape-y-move");
-                            var selectedShapeMoveLabel;
-                            var selectedShape = 'circle()';
-                            var isMoveShapeSelected = function () {
-                                return !shapeX.disabled || !shapeY.disabled;
+                    <section>
+                        <style>
+                            #circle-shape {
+                                float: left;
+                                width: 10em;
+                                height: 7em;
+                                shape-outside: circle();
+                                -webkit-shape-outside: circle();
+                                background-color: darkblue;
+                                overflow: hidden;
                             }
-                            var updateShape = function (shape) {
-                                circleShape.style.shapeOutside = shape;
-                                circleShape.style.webkitShapeOutside = shape;
-                                visualization.style.webkitClipPath = shape;
-                            };
-                            var resetMoveShape = function () {
-                                shapeX.value = 50;
-                                shapeY.value = 50;
-                                moveHandler();
-                            };
-                            var defaultHandler = function (e) {
-                                if (isMoveShapeSelected()) {
-                                    resetMoveShape();
-                                    shapeX.disabled = true;
-                                    shapeY.disabled = true;
-                                }
+                            #circle-shape-visualization {
+                                width: 100%;
+                                height: 100%;
+                                -webkit-clip-path: circle();
+                                background-color: #93a1a1;
+                            }
+                        </style>
+                        <h2>Basic Shape: circle()</h2>
 
-                                selectedShape = e.target.value;
-                                updateShape(selectedShape);
-                                selectedShapeMoveLabel = null;
-                            };
-                            var selectMoveShapeHandler = function (e) {
-                                if (selectedShape != e.target.value) {
+                        <div class="stretch demo-container">
+                            <div id="circle-shape"><div id="circle-shape-visualization"></div></div>
+                            <p class="demo-text">To Sherlock Holmes she is always the woman. I have seldom heard him mention her under any other name. In his eyes she eclipses and predominates the whole of her sex. It was not that he felt any emotion akin to love for Irene Adler. All emotions, and that one particularly, were abhorrent to his cold, precise but admirably balanced mind. He was, I take it, the most perfect reasoning and observing machine that the world has seen, but as a lover he would have placed himself in a false position. He never spoke of the softer passions, save with a gibe and a sneer. They were admirable things for the observer—excellent for drawing the veil from men’s motives and actions. But for the trained reasoner to admit such intrusions into his own delicate and finely adjusted temperament was to introduce a distracting factor which might throw a doubt upon all his mental results. Grit in a sensitive instrument, or a crack in one of his own high-power lenses, would not be more disturbing than a strong emotion in a nature such as his. And yet there was but one woman to him, and that woman was the late Irene Adler, of dubious and questionable memory.</p>
+                            <div id="circle-shape-controls" class="shape-controls drop-shadow">
+                                <p>
+                                    <input type="radio" id="circle-shape-closest-side" name="circle-shape" value="circle()" checked>
+                                    <label for="circle-shape-closest-side"><code class="css">circle()</code></label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="circle-shape-farthest-side" name="circle-shape" value="circle(farthest-side)">
+                                    <label for="circle-shape-farthest-side"><code class="css">circle(farthest-side)</code></label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="circle-shape-closest-side-move" name="circle-shape" value="circle(closest-side at centerX centerY)">
+                                    <label for="circle-shape-closest-side-move"><code class="css">circle(closest-side at 50% 50%)</code></label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="circle-shape-farthest-side-move" name="circle-shape" value="circle(farthest-side at centerX centerY)">
+                                    <label for="circle-shape-farthest-side-move"><code class="css">circle(farthest-side at 50% 50%)</code></label>
+                                </p>
+                                <p>
+                                    <span style="margin-right: 3em">
+                                        <label for="circle-shape-x-move">centerX</label>
+                                        <input type="range" id="circle-shape-x-move" value="50" disabled>
+                                    </span>
+                                    <span>
+                                        <label for="circle-shape-y-move">centerY</label>
+                                        <input type="range" id="circle-shape-y-move" value="50" disabled>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <aside class="notes">
+
+                        </aside>
+
+                        <script>
+                            (function () {
+                                var circleShape = document.getElementById('circle-shape');
+                                var visualization = document.getElementById('circle-shape-visualization');
+                                var shapeX = document.getElementById("circle-shape-x-move");
+                                var shapeY = document.getElementById("circle-shape-y-move");
+                                var selectedShapeMoveLabel;
+                                var selectedShape = 'circle()';
+                                var isMoveShapeSelected = function () {
+                                    return !shapeX.disabled || !shapeY.disabled;
+                                }
+                                var updateShape = function (shape) {
+                                    circleShape.style.shapeOutside = shape;
+                                    circleShape.style.webkitShapeOutside = shape;
+                                    visualization.style.webkitClipPath = shape;
+                                };
+                                var resetMoveShape = function () {
+                                    shapeX.value = 50;
+                                    shapeY.value = 50;
+                                    moveHandler();
+                                };
+                                var defaultHandler = function (e) {
                                     if (isMoveShapeSelected()) {
                                         resetMoveShape();
+                                        shapeX.disabled = true;
+                                        shapeY.disabled = true;
                                     }
-                                    else {
-                                        shapeX.disabled = false;
-                                        shapeY.disabled = false;
-                                    }
+
                                     selectedShape = e.target.value;
-                                    selectedShapeMoveLabel = document.querySelector('label[for="' + e.target.id + '"] code');
-                                }
+                                    updateShape(selectedShape);
+                                    selectedShapeMoveLabel = null;
+                                };
+                                var selectMoveShapeHandler = function (e) {
+                                    if (selectedShape != e.target.value) {
+                                        if (isMoveShapeSelected()) {
+                                            resetMoveShape();
+                                        }
+                                        else {
+                                            shapeX.disabled = false;
+                                            shapeY.disabled = false;
+                                        }
+                                        selectedShape = e.target.value;
+                                        selectedShapeMoveLabel = document.querySelector('label[for="' + e.target.id + '"] code');
+                                    }
 
-                                moveHandler(e);
-                            };
-                            var moveHandler = function (e) {
-                                var shapeOutside = selectedShape.replace(/centerX/, shapeX.value + '%').replace(/centerY/, shapeY.value + '%');
-                                updateShape(shapeOutside);
-                                selectedShapeMoveLabel.innerHTML = shapeOutside;
-                            };
-                            [
-                                {
-                                    id: 'circle-shape-closest-side',
-                                    handler: defaultHandler
-                                },
-                                {
-                                    id: 'circle-shape-farthest-side',
-                                    handler: defaultHandler
-                                },
-                                {
-                                    id: 'circle-shape-closest-side-move',
-                                    handler: selectMoveShapeHandler
-                                },
-                                {
-                                    id: 'circle-shape-farthest-side-move',
-                                    handler: selectMoveShapeHandler
-                                },
-                                {
-                                    id: 'circle-shape-x-move',
-                                    handler: moveHandler
-                                },
-                                {
-                                    id: 'circle-shape-y-move',
-                                    handler: moveHandler
-                                }
-                            ].forEach(function (control) {
-                                var element = document.getElementById(control.id);
-                                element.onchange = control.handler;
-                                element.oninput = control.handler;
-                            });
-                        })();
-                    </script>
-                </section>
-                <section>
-                    <style>
-                        #ellipse-shape {
-                            float: left;
-                            width: 10em;
-                            height: 7em;
-                            shape-outside: ellipse();
-                            -webkit-shape-outside: ellipse();
-                            background-color: darkblue;
-                            overflow: hidden;
-                        }
-                        #ellipse-shape-visualization {
-                            width: 100%;
-                            height: 100%;
-                            -webkit-clip-path: ellipse();
-                            background-color: #93a1a1;
-                        }
-                        #ellipse-shape-controls {
-                            width: 90%;
-                            left: 5%;
-                        }
-                    </style>
-
-                    <h2>Basic Shape: ellipse()</h2>
-
-                    <div class="stretch demo-container">
-                        <div id="ellipse-shape">
-                            <div id="ellipse-shape-visualization"></div>
-                        </div>
-                        <p class="demo-text">Tell me, O Muse, of that ingenious hero who travelled far and wide after he had sacked the famous town of Troy. Many cities did he visit, and many were the nations with whose manners and customs he was acquainted; moreover he suffered much by sea while trying to save his own life and bring his men safely home; but do what he might he could not save his men, for they perished through their own sheer folly in eating the cattle of the Sun-god Hyperion; so the god prevented them from ever reaching home. Tell me, too, about all these things, oh daughter of Jove, from whatsoever source you may know them.</p>
-                        <p class="demo-text">So now all who escaped death in battle or by shipwreck had got safely home except Ulysses, and he, though he was longing to return to his wife and country, was detained by the goddess Calypso, who had got him into a large cave and wanted to marry him. But as years went by, there came a time when the gods settled that he should go back to Ithaca; even then, however, when he was among his own people, his troubles were not yet over; nevertheless all the gods had now begun to pity him except Neptune, who still persecuted him without ceasing and would not let him get home.</p>
-                        <div id="ellipse-shape-controls" class="shape-controls drop-shadow">
-                            <p>
-                                <input type="radio" id="ellipse-shape-closest-side" name="ellipse-shape" value="ellipse()" checked>
-                                <label for="ellipse-shape-closest-side"><code class="css">ellipse()</code></label>
-                            </p>
-                            <p>
-                                <input type="radio" id="ellipse-shape-farthest-side" name="ellipse-shape" value="ellipse(farthest-side farthest-side)">
-                                <label for="ellipse-shape-farthest-side"><code class="css">ellipse(farthest-side farthest-side)</code></label>
-                            </p>
-                            <p>
-                                <input type="radio" id="ellipse-shape-closest-side-move" name="ellipse-shape" value="ellipse(closest-side closest-side at centerX centerY)">
-                                <label for="ellipse-shape-closest-side-move"><code class="css">ellipse(closest-side closest-side at 50% 50%)</code></label>
-                            </p>
-                            <p>
-                                <input type="radio" id="ellipse-shape-farthest-side-move" name="ellipse-shape" value="ellipse(farthest-side farthest-side at centerX centerY)">
-                                <label for="ellipse-shape-farthest-side-move"><code class="css">ellipse(farthest-side farthest-side at 50% 50%)</code></label>
-                            </p>
-                            <p>
-                                <span style="margin-right: 3em">
-                                    <label for="ellipse-shape-x-move">centerX</label>
-                                    <input type="range" id="ellipse-shape-x-move" value="50" disabled>
-                                </span>
-                                <span>
-                                    <label for="ellipse-shape-y-move">centerY</label>
-                                    <input type="range" id="ellipse-shape-y-move" value="50" disabled>
-                                </span>
-                            </p>
-                        </div>
-                    </div>
-
-                    <aside class="notes">
-
-                    </aside>
-                    <script>
-                        // FIXME this is a straight copy of the circle code. It should be centralized so that they both can use the same code.
-                        (function () {
-                            var ellipseShape = document.getElementById('ellipse-shape');
-                            var visualization = document.getElementById('ellipse-shape-visualization');
-                            var shapeX = document.getElementById("ellipse-shape-x-move");
-                            var shapeY = document.getElementById("ellipse-shape-y-move");
-                            var selectedShapeMoveLabel;
-                            var selectedShape = 'ellipse()';
-                            var isMoveShapeSelected = function () {
-                                return !shapeX.disabled || !shapeY.disabled;
+                                    moveHandler(e);
+                                };
+                                var moveHandler = function (e) {
+                                    var shapeOutside = selectedShape.replace(/centerX/, shapeX.value + '%').replace(/centerY/, shapeY.value + '%');
+                                    updateShape(shapeOutside);
+                                    selectedShapeMoveLabel.innerHTML = shapeOutside;
+                                };
+                                [
+                                    {
+                                        id: 'circle-shape-closest-side',
+                                        handler: defaultHandler
+                                    },
+                                    {
+                                        id: 'circle-shape-farthest-side',
+                                        handler: defaultHandler
+                                    },
+                                    {
+                                        id: 'circle-shape-closest-side-move',
+                                        handler: selectMoveShapeHandler
+                                    },
+                                    {
+                                        id: 'circle-shape-farthest-side-move',
+                                        handler: selectMoveShapeHandler
+                                    },
+                                    {
+                                        id: 'circle-shape-x-move',
+                                        handler: moveHandler
+                                    },
+                                    {
+                                        id: 'circle-shape-y-move',
+                                        handler: moveHandler
+                                    }
+                                ].forEach(function (control) {
+                                    var element = document.getElementById(control.id);
+                                    element.onchange = control.handler;
+                                    element.oninput = control.handler;
+                                });
+                            })();
+                        </script>
+                    </section>
+                    <section>
+                        <style>
+                            #ellipse-shape {
+                                float: left;
+                                width: 10em;
+                                height: 7em;
+                                shape-outside: ellipse();
+                                -webkit-shape-outside: ellipse();
+                                background-color: darkblue;
+                                overflow: hidden;
                             }
-                            var updateShape = function (shape) {
-                                ellipseShape.style.shapeOutside = shape;
-                                ellipseShape.style.webkitShapeOutside = shape;
-                                visualization.style.webkitClipPath = shape;
-                            };
-                            var resetMoveShape = function () {
-                                shapeX.value = 50;
-                                shapeY.value = 50;
-                                moveHandler();
-                            };
-                            var defaultHandler = function (e) {
-                                if (isMoveShapeSelected()) {
-                                    resetMoveShape();
-                                    shapeX.disabled = true;
-                                    shapeY.disabled = true;
-                                }
+                            #ellipse-shape-visualization {
+                                width: 100%;
+                                height: 100%;
+                                -webkit-clip-path: ellipse();
+                                background-color: #93a1a1;
+                            }
+                            #ellipse-shape-controls {
+                                width: 90%;
+                                left: 5%;
+                            }
+                        </style>
 
-                                selectedShape = e.target.value;
-                                updateShape(selectedShape);
-                                selectedShapeMoveLabel = null;
-                            };
-                            var selectMoveShapeHandler = function (e) {
-                                if (selectedShape != e.target.value) {
+                        <h2>Basic Shape: ellipse()</h2>
+
+                        <div class="stretch demo-container">
+                            <div id="ellipse-shape">
+                                <div id="ellipse-shape-visualization"></div>
+                            </div>
+                            <p class="demo-text">Tell me, O Muse, of that ingenious hero who travelled far and wide after he had sacked the famous town of Troy. Many cities did he visit, and many were the nations with whose manners and customs he was acquainted; moreover he suffered much by sea while trying to save his own life and bring his men safely home; but do what he might he could not save his men, for they perished through their own sheer folly in eating the cattle of the Sun-god Hyperion; so the god prevented them from ever reaching home. Tell me, too, about all these things, oh daughter of Jove, from whatsoever source you may know them.</p>
+                            <p class="demo-text">So now all who escaped death in battle or by shipwreck had got safely home except Ulysses, and he, though he was longing to return to his wife and country, was detained by the goddess Calypso, who had got him into a large cave and wanted to marry him. But as years went by, there came a time when the gods settled that he should go back to Ithaca; even then, however, when he was among his own people, his troubles were not yet over; nevertheless all the gods had now begun to pity him except Neptune, who still persecuted him without ceasing and would not let him get home.</p>
+                            <div id="ellipse-shape-controls" class="shape-controls drop-shadow">
+                                <p>
+                                    <input type="radio" id="ellipse-shape-closest-side" name="ellipse-shape" value="ellipse()" checked>
+                                    <label for="ellipse-shape-closest-side"><code class="css">ellipse()</code></label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="ellipse-shape-farthest-side" name="ellipse-shape" value="ellipse(farthest-side farthest-side)">
+                                    <label for="ellipse-shape-farthest-side"><code class="css">ellipse(farthest-side farthest-side)</code></label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="ellipse-shape-closest-side-move" name="ellipse-shape" value="ellipse(closest-side closest-side at centerX centerY)">
+                                    <label for="ellipse-shape-closest-side-move"><code class="css">ellipse(closest-side closest-side at 50% 50%)</code></label>
+                                </p>
+                                <p>
+                                    <input type="radio" id="ellipse-shape-farthest-side-move" name="ellipse-shape" value="ellipse(farthest-side farthest-side at centerX centerY)">
+                                    <label for="ellipse-shape-farthest-side-move"><code class="css">ellipse(farthest-side farthest-side at 50% 50%)</code></label>
+                                </p>
+                                <p>
+                                    <span style="margin-right: 3em">
+                                        <label for="ellipse-shape-x-move">centerX</label>
+                                        <input type="range" id="ellipse-shape-x-move" value="50" disabled>
+                                    </span>
+                                    <span>
+                                        <label for="ellipse-shape-y-move">centerY</label>
+                                        <input type="range" id="ellipse-shape-y-move" value="50" disabled>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <aside class="notes">
+
+                        </aside>
+                        <script>
+                            // FIXME this is a straight copy of the circle code. It should be centralized so that they both can use the same code.
+                            (function () {
+                                var ellipseShape = document.getElementById('ellipse-shape');
+                                var visualization = document.getElementById('ellipse-shape-visualization');
+                                var shapeX = document.getElementById("ellipse-shape-x-move");
+                                var shapeY = document.getElementById("ellipse-shape-y-move");
+                                var selectedShapeMoveLabel;
+                                var selectedShape = 'ellipse()';
+                                var isMoveShapeSelected = function () {
+                                    return !shapeX.disabled || !shapeY.disabled;
+                                }
+                                var updateShape = function (shape) {
+                                    ellipseShape.style.shapeOutside = shape;
+                                    ellipseShape.style.webkitShapeOutside = shape;
+                                    visualization.style.webkitClipPath = shape;
+                                };
+                                var resetMoveShape = function () {
+                                    shapeX.value = 50;
+                                    shapeY.value = 50;
+                                    moveHandler();
+                                };
+                                var defaultHandler = function (e) {
                                     if (isMoveShapeSelected()) {
                                         resetMoveShape();
+                                        shapeX.disabled = true;
+                                        shapeY.disabled = true;
                                     }
-                                    else {
-                                        shapeX.disabled = false;
-                                        shapeY.disabled = false;
-                                    }
+
                                     selectedShape = e.target.value;
-                                    selectedShapeMoveLabel = document.querySelector('label[for="' + e.target.id + '"] code');
-                                }
+                                    updateShape(selectedShape);
+                                    selectedShapeMoveLabel = null;
+                                };
+                                var selectMoveShapeHandler = function (e) {
+                                    if (selectedShape != e.target.value) {
+                                        if (isMoveShapeSelected()) {
+                                            resetMoveShape();
+                                        }
+                                        else {
+                                            shapeX.disabled = false;
+                                            shapeY.disabled = false;
+                                        }
+                                        selectedShape = e.target.value;
+                                        selectedShapeMoveLabel = document.querySelector('label[for="' + e.target.id + '"] code');
+                                    }
 
-                                moveHandler(e);
-                            };
-                            var moveHandler = function (e) {
-                                var shapeOutside = selectedShape.replace(/centerX/, shapeX.value + '%').replace(/centerY/, shapeY.value + '%');
-                                updateShape(shapeOutside);
-                                selectedShapeMoveLabel.innerHTML = shapeOutside;
-                            };
-                            [
-                                {
-                                    id: 'ellipse-shape-closest-side',
-                                    handler: defaultHandler
-                                },
-                                {
-                                    id: 'ellipse-shape-farthest-side',
-                                    handler: defaultHandler
-                                },
-                                {
-                                    id: 'ellipse-shape-closest-side-move',
-                                    handler: selectMoveShapeHandler
-                                },
-                                {
-                                    id: 'ellipse-shape-farthest-side-move',
-                                    handler: selectMoveShapeHandler
-                                },
-                                {
-                                    id: 'ellipse-shape-x-move',
-                                    handler: moveHandler
-                                },
-                                {
-                                    id: 'ellipse-shape-y-move',
-                                    handler: moveHandler
-                                }
-                            ].forEach(function (control) {
-                                var element = document.getElementById(control.id);
-                                element.onchange = control.handler;
-                                element.oninput = control.handler;
-                            });
-                        })();
-                    </script>
-                </section>
-                <section>
-                    <h2>Defining Radii for Circle and Ellipse</h2>
+                                    moveHandler(e);
+                                };
+                                var moveHandler = function (e) {
+                                    var shapeOutside = selectedShape.replace(/centerX/, shapeX.value + '%').replace(/centerY/, shapeY.value + '%');
+                                    updateShape(shapeOutside);
+                                    selectedShapeMoveLabel.innerHTML = shapeOutside;
+                                };
+                                [
+                                    {
+                                        id: 'ellipse-shape-closest-side',
+                                        handler: defaultHandler
+                                    },
+                                    {
+                                        id: 'ellipse-shape-farthest-side',
+                                        handler: defaultHandler
+                                    },
+                                    {
+                                        id: 'ellipse-shape-closest-side-move',
+                                        handler: selectMoveShapeHandler
+                                    },
+                                    {
+                                        id: 'ellipse-shape-farthest-side-move',
+                                        handler: selectMoveShapeHandler
+                                    },
+                                    {
+                                        id: 'ellipse-shape-x-move',
+                                        handler: moveHandler
+                                    },
+                                    {
+                                        id: 'ellipse-shape-y-move',
+                                        handler: moveHandler
+                                    }
+                                ].forEach(function (control) {
+                                    var element = document.getElementById(control.id);
+                                    element.onchange = control.handler;
+                                    element.oninput = control.handler;
+                                });
+                            })();
+                        </script>
+                    </section>
+                    <section>
+                        <h2>Defining Radii for Circle and Ellipse</h2>
 
-                    <ul>
-                        <li>Length (em, ex, ch, rem, vw, vh, vmin, vmax, cm, mm, q, in, pc, pt, px)</li>
-                        <li>Percentage
-                            <ul>
-                                <li>For <code>circle()</code>
-                                    <ul>
-                                        <li>relative to \( \sqrt{ (width^{2} + height^{2}) / 2 } \)</li>
-                                    </ul>
-                                </li>
-                                <li>For <code>ellipse()</code>
-                                    <ul>
-                                        <li>x radius (<code>rx</code>) is relative to the width of the reference box</li>
-                                        <li>y radius (<code>ry</code>) is relative to the height of the reference box</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+                        <ul>
+                            <li>Length (em, ex, ch, rem, vw, vh, vmin, vmax, cm, mm, q, in, pc, pt, px)</li>
+                            <li>Percentage
+                                <ul>
+                                    <li>For <code>circle()</code>
+                                        <ul>
+                                            <li>relative to \( \sqrt{ (width^{2} + height^{2}) / 2 } \)</li>
+                                        </ul>
+                                    </li>
+                                    <li>For <code>ellipse()</code>
+                                        <ul>
+                                            <li>x radius (<code>rx</code>) is relative to the width of the reference box</li>
+                                            <li>y radius (<code>ry</code>) is relative to the height of the reference box</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
 
-                    <aside class="notes">
+                        <aside class="notes">
 
-                    </aside>
+                        </aside>
+                    </section>
                 </section>
                 <section>
                     <section>

@@ -46,7 +46,7 @@ var canIUse = (function () {
         TMPL_SUPPORT_WRAPPER = '<table class="agents"><tbody><tr>{items}</tr></tbody></table>', // support wrapper {items}
         TMPL_SUPPORT = '<td title="{browser} - {support}" class="icon-{browsercode} {supportcode}">{version}{prefixed}</td>',
         TMPL_PREFIX_NOTE = '<p>* denotes prefix required.</p>',
-        TMPL_LEGEND = '<table class="legend"><tbody><tr><td class="y">Yes</td><td class="n">No</td><td class="a">Partially</td><td class="p">Polyfill</td></tr></tbody></table>',
+        TMPL_LEGEND = '',
         TMPL_FOOTER = '<p class="stats">Data from <a href="http://caniuse.com/#feat={feature}">caniuse.com</a></p>',
         TMPL_LOADING = '<p>Loading data from caniuse.com</p>',
         TMPL_ERROR = '<h2>Error</h2><p>Feature "{feature}" not found!</p>';

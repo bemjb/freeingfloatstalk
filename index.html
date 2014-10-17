@@ -695,7 +695,9 @@
                     <h2>Basic Shape: polygon()</h2>
 
                     <pre><code class="css" data-trim>
-#triangle { shape-outside: polygon(0 0, 100% 0, 50% 100%); }
+#triangle {
+    shape-outside: polygon(0 0, 100% 0, 50% 100%);
+}
                     </code></pre>
 
                     <div class="shape-container">
@@ -746,7 +748,7 @@
                     </style>
                     <h2>Image Shapes</h2>
 
-                    <pre><code>
+                    <pre><code class="css" data-trim>
 #image {
     shape-outside: url("images/hyperbolic_triangle.svg");
 }
@@ -806,8 +808,10 @@
 
                     <pre><code id="shape-image-threshold-code" class="css" data-trim>
 #image-threshold {
-    shape-outside: radial-gradient(10em circle at left, #268bd2, transparent 50%);
-    shape-image-threshold: 0;
+    shape-outside: radial-gradient(
+        10em circle at left, #268bd2, transparent 50%
+    );
+    shape-image-threshold: 0.00;
 }
                     </code></pre>
 
@@ -838,7 +842,7 @@
                                 shape.style.shapeImageThreshold = threshold;
                                 shape.style.webkitShapeImageThreshold = threshold;
 
-                                shapeCode.innerHTML = '#image-threshold {\n    shape-outside: radial-gradient(10em circle at left, #268bd2, transparent 50%);\n    shape-image-threshold: ' + threshold + ';\n}';
+                                shapeCode.innerHTML = '#image-threshold {\n    shape-outside: radial-gradient(\n        10em circle at left, #268bd2, transparent 50%\n    );\n    shape-image-threshold: ' + parseFloat(threshold).toFixed(2) + ';\n}';
                                 hljs.highlightBlock(shapeCode);
                             };
                             thresholdControl.onchange = handler;

@@ -141,10 +141,10 @@
                         <style>
                             #image-shape {
                                 float: left;
-                                shape-outside: url("images/hyperbolic_triangle.svg");
-                                -webkit-shape-outside: url("images/hyperbolic_triangle.svg");
+                                shape-outside: url("images/cow.png");
+                                -webkit-shape-outside: url("images/cow.png");
                                 border: none;
-                                width: 10em;
+                                width: 12em;
                                 background: none;
                             }
                         </style>
@@ -152,15 +152,18 @@
 
                         <pre><code class="css" data-trim>
 #image {
-    shape-outside: url("images/hyperbolic_triangle.svg");
+    shape-outside: url("images/cow.png");
 }
                         </code></pre>
 
                         <div class="shape-container">
-                            <img id="image-shape" src="images/hyperbolic_triangle.svg">
-                            <p>Alpha channel of the image defines the shape</p>
+                            <img id="image-shape" src="images/cow.png">
+                            <br>
+                            <p>Alpha channel of the image defines the shape's contour</p>
                             <p>Always sized and positioned based on the content box of the float</p>
                         </div>
+
+                        <p style="clear: both">Image from <a href-"http://www.freepik.com/free-vector/triangle-cow-design_723874.htm">Freepik</a></p>
 
                         <aside class="notes">
 
@@ -169,25 +172,27 @@
                     <section>
                         <style>
                             .image-shape-margin {
-                                shape-margin: 0.5em;
-                                -webkit-shape-margin: 0.5em;
+                                shape-margin: 1em;
+                                -webkit-shape-margin: 1em;
                             }
                         </style>
                         <h2>shape-margin</h2>
 
                         <pre><code class="css" data-trim>
 #shape-margin {
-    shape-outside: url("images/hyperbolic_triangle.svg");
-    shape-margin: 0.5em;
+    shape-outside: url("images/cow.png");
+    shape-margin: 1em;
 }
                         </code></pre>
 
                         <div class="shape-container">
-                            <img id="image-shape" class="image-shape-margin" src="images/hyperbolic_triangle.svg">
-                            <p>Alpha channel of the image defines the shape</p>
+                            <img id="image-shape" class="image-shape-margin" src="images/cow.png">
+                            <br>
+                            <p>Alpha channel of the image defines the shape's contour</p>
                             <p>Always sized and positioned based on the content box of the float</p>
                         </div>
 
+                        <p style="clear: both">Image from <a href-"http://www.freepik.com/free-vector/triangle-cow-design_723874.htm">Freepik</a></p>
 
                         <aside class="notes">
 

@@ -108,6 +108,23 @@
                     </section>
                 </section>
                 <section>
+                    <section>
+                        <div class="caniuse" data-feature="css-shapes"></div>
+                    </section>
+                    <section>
+                        <iframe class="stretch" src="http://codepen.io/adobe/full/3b079a5671f21d140f47ffce3801ddfa"></iframe>
+                        <p><a href="http://blogs.adobe.com/webplatform/2014/05/12/css-shapes-polyfill/">CSS Shapes Polyfill</a></p>
+                    </section>
+                    <section>
+                        <iframe style="overflow: hidden;" class="stretch" scrolling="no" seamless="seamless" src="demo/css-shapes-espresso/index.html"></iframe>
+                        <p>Based on a <a href="http://razvancaliman.com/css-shapes-espresso/">demo</a> by Razvan Caliman</p>
+                    </section>
+                    <section>
+                        <iframe style="overflow: hidden;" class="stretch" scrolling="no" seamless="seamless" src="demo/css-shapes-espresso-no-shapes/index.html"></iframe>
+                        <p>Based on a <a href="http://razvancaliman.com/css-shapes-espresso/">demo</a> by Razvan Caliman</p>
+                    </section>
+                </section>
+                <section>
                     <h2>shape-outside</h2>
 
                     <ul>
@@ -256,75 +273,6 @@
                     </section>
                 </section>
                 <section>
-                    <style>
-                        #box-model-shape {
-                            float: left;
-                            background-color: blue;
-                            padding: 1em;
-                            border: 1em solid cyan;
-                            border-radius: 3em;
-                            margin: 1em;
-                            overflow: hidden;
-                            shape-outside: none;
-                        }
-                        #box-model-shape-content {
-                            box-sizing: border-box;
-                            width: 100%;
-                            height: 100%;
-                            background-color: darkblue;
-                            padding: 0em 1em;
-                        }
-                    </style>
-                    <h2>Box (Model) Shapes</h2>
-                    <div class="stretch demo-container">
-                        <div id="box-model-shape">
-                            <div id="box-model-shape-content">
-                                <p>
-                                    <input type="radio" name="box-model-shape" id="box-model-shape-none" value="none" checked>
-                                    <label for="box-model-shape-none"><code>none</code></label>
-                                </p>
-                                <p>
-                                    <input type="radio" name="box-model-shape" id="box-model-shape-margin-box" value="margin-box">
-                                    <label for="box-model-shape-margin-box"><code>margin-box</code></label>
-                                </p>
-                                <p>
-                                    <input type="radio" name="box-model-shape" id="box-model-shape-border-box" value="border-box">
-                                    <label for="box-model-shape-border-box"><code>border-box</code></label>
-                                </p>
-                                <p>
-                                    <input type="radio" name="box-model-shape" id="box-model-shape-padding-box" value="padding-box">
-                                    <label for="box-model-shape-padding-box"><code>padding-box</code></label>
-                                </p>
-                                <p>
-                                    <input type="radio" name="box-model-shape" id="box-model-shape-content-box" value="content-box">
-                                    <label for="box-model-shape-content-box"><code>content-box</code></label>
-                                </p>
-                            </div>
-                        </div>
-                        <p class="demo-text">Annancy is a legendary being whose chief characteristic is trickery. A strong and good workman, he is invariably lazy, and is only to be tempted to honest labour by the offer of a large reward. He prefers to fill the bag which he always carries, by fraud or theft. His appetite is voracious, and nothing comes amiss to him, cooked or raw. No sooner is one gluttonous feast over than he is ready for another, and endless are his shifts and devices to supply himself with food. Sometimes he will thrust himself upon an unwilling neighbour, and eat up all his breakfast. At another time he carries out his bag and brings it home full of flesh or fish obtained by thieving. He is perfectly selfish, and knows no remorse for his many deeds of violence, treachery and cruelty. His only redeeming point is a sort of hail-fellow-well-met-ness, which appeals so much to his associates that they are ready almost, if not quite, to condone his offences.</p>
-                    </div>
-                    <script>
-                        (function () {
-                            var boxModelShape = document.getElementById('box-model-shape');
-                            var handler = function (e) {
-                                var shapeOutside = e.target.value;
-                                boxModelShape.style.shapeOutside = shapeOutside;
-                                boxModelShape.style.webkitShapeOutside = shapeOutside;
-                            };
-                            [ 'box-model-shape-none',
-                                'box-model-shape-margin-box',
-                                'box-model-shape-border-box',
-                                'box-model-shape-padding-box',
-                                'box-model-shape-content-box',
-                            ].forEach(function (id) {
-                                var element = document.getElementById(id);
-                                element.onchange = handler;
-                                element.oninput = handler;
-                            });
-                        })();
-                    </script>
-                </section>
-                <section>
                     <h2>Basic Shapes</h2>
 
                     <ul>
@@ -345,7 +293,7 @@
                                 float: left;
                                 width: 10em;
                                 height: 10em;
-                                background-color: darkblue;
+                                background-color: #3F3F3F;
                             }
                             #inset-shape-visualization {
                                 box-sizing: border-box;
@@ -459,7 +407,7 @@
                                 float: left;
                                 width: 10em;
                                 height: 10em;
-                                background-color: darkblue;
+                                background-color: #3F3F3F;
                                 shape-outside: inset(2em round 1em 2em 3em 4em);
                                 -webkit-shape-outside: inset(2em round 1em 2em 3em 4em);
                             }
@@ -505,7 +453,7 @@
                                 height: 7em;
                                 shape-outside: circle();
                                 -webkit-shape-outside: circle();
-                                background-color: darkblue;
+                                background-color: #3F3F3F;
                                 overflow: hidden;
                             }
                             #circle-shape-visualization {
@@ -647,7 +595,7 @@
                                 height: 7em;
                                 shape-outside: ellipse();
                                 -webkit-shape-outside: ellipse();
-                                background-color: darkblue;
+                                background-color: #3F3F3F;
                                 overflow: hidden;
                             }
                             #ellipse-shape-visualization {
@@ -825,7 +773,7 @@
                                 width: 10em;
                                 -webkit-shape-outside: polygon(0 0, 100% 0, 50% 100%);
                                 shape-outside: polygon(0 0, 100% 0, 50% 100%);
-                                background-color: darkblue;
+                                background-color: #3F3F3F;
                             }
                             #polygon-shape-visualization {
                                 width: 100%;
@@ -860,41 +808,95 @@
                     </section>
                 </section>
                 <section>
-                    <h2>Reference Boxes</h2>
-
-                    <ul>
-                        <li>Basic shapes are sized and positioned relative to the element that the shape applies to.</li>
-                        <li>Percentages used to position or size shapes are precentages of the reference box dimensions.</li>
-                        <li>By default, the shape's coordinates are relative to the margin box of the element</li>
-                        <li>This can be changed by specifying one of the box shapes along with the basic shape</li>
-                        <li>For example:
-                            <pre><code class="css" data-trim>
-.basic-shape-reference-box {
-    shape-outside: circle() content-box;
-}
-                            </code></pre>
-                        </li>
-                    </ul>
-
-                    <aside class="notes">
-
-                    </aside>
-                </section>
-                <section>
                     <section>
-                        <div class="caniuse" data-feature="css-shapes"></div>
+                        <style>
+                            #box-model-shape {
+                                float: left;
+                                background-color: blue;
+                                padding: 1em;
+                                border: 1em solid cyan;
+                                border-radius: 3em;
+                                margin: 1em;
+                                overflow: hidden;
+                                shape-outside: none;
+                            }
+                            #box-model-shape-content {
+                                box-sizing: border-box;
+                                width: 100%;
+                                height: 100%;
+                                background-color: darkblue;
+                                padding: 0em 1em;
+                            }
+                        </style>
+                        <h2>Box (Model) Shapes</h2>
+                        <div class="stretch demo-container">
+                            <div id="box-model-shape">
+                                <div id="box-model-shape-content">
+                                    <p>
+                                        <input type="radio" name="box-model-shape" id="box-model-shape-none" value="none" checked>
+                                        <label for="box-model-shape-none"><code>none</code></label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" name="box-model-shape" id="box-model-shape-margin-box" value="margin-box">
+                                        <label for="box-model-shape-margin-box"><code>margin-box</code></label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" name="box-model-shape" id="box-model-shape-border-box" value="border-box">
+                                        <label for="box-model-shape-border-box"><code>border-box</code></label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" name="box-model-shape" id="box-model-shape-padding-box" value="padding-box">
+                                        <label for="box-model-shape-padding-box"><code>padding-box</code></label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" name="box-model-shape" id="box-model-shape-content-box" value="content-box">
+                                        <label for="box-model-shape-content-box"><code>content-box</code></label>
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="demo-text">Annancy is a legendary being whose chief characteristic is trickery. A strong and good workman, he is invariably lazy, and is only to be tempted to honest labour by the offer of a large reward. He prefers to fill the bag which he always carries, by fraud or theft. His appetite is voracious, and nothing comes amiss to him, cooked or raw. No sooner is one gluttonous feast over than he is ready for another, and endless are his shifts and devices to supply himself with food. Sometimes he will thrust himself upon an unwilling neighbour, and eat up all his breakfast. At another time he carries out his bag and brings it home full of flesh or fish obtained by thieving. He is perfectly selfish, and knows no remorse for his many deeds of violence, treachery and cruelty. His only redeeming point is a sort of hail-fellow-well-met-ness, which appeals so much to his associates that they are ready almost, if not quite, to condone his offences.</p>
+                        </div>
+                        <script>
+                            (function () {
+                                var boxModelShape = document.getElementById('box-model-shape');
+                                var handler = function (e) {
+                                    var shapeOutside = e.target.value;
+                                    boxModelShape.style.shapeOutside = shapeOutside;
+                                    boxModelShape.style.webkitShapeOutside = shapeOutside;
+                                };
+                                [ 'box-model-shape-none',
+                                    'box-model-shape-margin-box',
+                                    'box-model-shape-border-box',
+                                    'box-model-shape-padding-box',
+                                    'box-model-shape-content-box',
+                                ].forEach(function (id) {
+                                    var element = document.getElementById(id);
+                                    element.onchange = handler;
+                                    element.oninput = handler;
+                                });
+                            })();
+                        </script>
                     </section>
                     <section>
-                        <iframe class="stretch" src="http://codepen.io/adobe/full/3b079a5671f21d140f47ffce3801ddfa"></iframe>
-                        <p><a href="http://blogs.adobe.com/webplatform/2014/05/12/css-shapes-polyfill/">CSS Shapes Polyfill</a></p>
-                    </section>
-                    <section>
-                        <iframe style="overflow: hidden;" class="stretch" scrolling="no" seamless="seamless" src="demo/css-shapes-espresso/index.html"></iframe>
-                        <p>Based on a <a href="http://razvancaliman.com/css-shapes-espresso/">demo</a> by Razvan Caliman</p>
-                    </section>
-                    <section>
-                        <iframe style="overflow: hidden;" class="stretch" scrolling="no" seamless="seamless" src="demo/css-shapes-espresso-no-shapes/index.html"></iframe>
-                        <p>Based on a <a href="http://razvancaliman.com/css-shapes-espresso/">demo</a> by Razvan Caliman</p>
+                        <h2>Reference Boxes</h2>
+
+                        <ul>
+                            <li>Basic shapes are sized and positioned relative to the element that the shape applies to.</li>
+                            <li>Percentages used to position or size shapes are precentages of the reference box dimensions.</li>
+                            <li>By default, the shape's coordinates are relative to the margin box of the element</li>
+                            <li>This can be changed by specifying one of the box shapes along with the basic shape</li>
+                            <li>For example:
+                                <pre><code class="css" data-trim>
+    .basic-shape-reference-box {
+        shape-outside: circle() content-box;
+    }
+                                </code></pre>
+                            </li>
+                        </ul>
+
+                        <aside class="notes">
+
+                        </aside>
                     </section>
                 </section>
                 <section>
